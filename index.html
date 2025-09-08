@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Project</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      line-height: 1.6;
+    }
+    h1 { text-align: center; }
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      height: 0;
+      overflow: hidden;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h1>My Research Project</h1>
+
+  <h2>Abstract</h2>
+  <p>
+    Here you can write your abstract. Summarize your research goals,
+    methods, and key findings in a concise way.
+  </p>
+
+  <h2>Video Presentation</h2>
+  <div class="video-container">
+    <!-- Replace the URL below with your YouTube/Vimeo link -->
+    <iframe src="https://www.youtube.com/embed/VIDEO_ID" 
+            frameborder="0" allowfullscreen></iframe>
+  </div>
+
+  <h2>More</h2>
+  <p>
+    🔗 <a href="https://github.com/username/my-project">View on GitHub</a>
+  </p>
+</body>
+</html>
