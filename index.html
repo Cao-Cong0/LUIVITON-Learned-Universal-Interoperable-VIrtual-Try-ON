@@ -36,6 +36,31 @@
       max-width: 1000px;   /* control just the abstract width */
     }
 
+    .buttons {
+      margin: 20px 0;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      background-color: #333;
+      color: white;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 999px; /* pill shape */
+      text-decoration: none;
+      font-size: 1em;
+      transition: background 0.2s ease;
+    }
+    
+    .btn:hover {
+      background-color: #555;
+    }
+    
+    .btn i {
+      margin-right: 8px; /* space between icon and text */
+    }
+
     .video-container {
       position: relative;
       padding-bottom: 56.25%; /* 16:9 */
@@ -48,9 +73,20 @@
       width: 100%; height: 100%;
     }
   </style>
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
   <h1>LUIVITON: Learned Universal Interoperable Virtual Try-ON</h1>
+
+  <!-- Buttons under the title -->
+  <div class="buttons">
+    <a href="https://arxiv.org/abs/2509.05030" class="btn"><i class="fa-solid fa-book"></i> ArXiv</a>
+    <a href="https://arxiv.org/pdf/2509.05030" class="btn"><i class="fa-solid fa-file-lines"></i> Paper</a>
+    <a href="https://github.com/cao-cong0/LUIVITON-Learned-Universal-Interoperable-VIrtual-Try-ON" class="btn"><i class="fab fa-github"></i> Code</a>
+  </div>
+
 
   <!-- Teaser -->
   <a href="teaser.png" target="_blank">
