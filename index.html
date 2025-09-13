@@ -2,15 +2,35 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>LUIVITON: Learned Universal Interoperable VIrtual Try-ON</title>
+  <title>LUIVITON: Learned Universal Interoperable Virtual Try-ON</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      max-width: 800px;
+      max-width: 900px;
       margin: 40px auto;
       line-height: 1.6;
+      text-align: center; /* Center main content */
     }
-    h1 { text-align: center; }
+    h1 {
+      font-size: 2.2em;
+      margin-bottom: 20px;
+    }
+    h2 {
+      margin-top: 40px;
+      text-align: left; /* Keep section headers aligned left */
+    }
+    .abstract {
+      text-align: center;
+      max-width: 800px;
+      margin: 20px auto;
+    }
+    .teaser-image, .overview-image {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 20px auto;
+      border: 1px solid #ddd;
+    }
     .video-container {
       position: relative;
       padding-bottom: 56.25%; /* 16:9 aspect ratio */
@@ -22,42 +42,48 @@
       top: 0; left: 0;
       width: 100%; height: 100%;
     }
-    .teaser-image {
-      display: block;
-      max-width: 100%;
-      height: auto;
-      margin: 20px auto;
-      border: 1px solid #ddd;
-    }
   </style>
 </head>
 <body>
-  <h1>LUIVITON: Learned Universal Interoperable VIrtual Try-ON</h1>
-  
-  <h2>Abstract</h2>
-  <p>
-    We present LUIVITON, an end-to-end system for fully automated virtual try-on, capable of draping complex, multi-layer clothing onto diverse and arbitrarily posed humanoid characters. To address the challenge of aligning complex garments with arbitrary and highly diverse body shapes, we use SMPL as a proxy representation and separate the clothing-to-body draping problem into two correspondence tasks: 1) clothing-to-SMPL and 2) body-to-SMPL correspondence, where each has its unique challenges. While we address the clothing-to-SMPL fitting problem using a geometric learning-based approach for partial-to-complete shape correspondence prediction, we introduce a diffusion model-based approach for body-to-SMPL correspondence using multi-view consistent appearance features and a pre-trained 2D foundation model. Our method can handle complex geometries, non-manifold meshes, and generalizes effectively to a wide range of humanoid characters—including humans, robots, cartoon subjects, creatures, and aliens, while maintaining computational efficiency for practical adoption. In addition to offering a fully automatic fitting solution, LUIVITON supports fast customization of clothing size, allowing users to adjust clothing sizes and material properties after they have been draped. We show that our system can produce high-quality 3D clothing fittings without any human labor, even when 2D clothing sewing patterns are not available.
-  </p>
+  <h1>LUIVITON: Learned Universal Interoperable Virtual Try-ON</h1>
 
-  <h2>Teaser</h2>
-  <p>
-    Click the image below to view the teaser PDF.
-  </p>
-  <a href="teaser.pdf" target="_blank">
-    <img src="teaser_preview.jpg" alt="Teaser Image Preview" class="teaser-image">
+  <!-- Teaser at the top -->
+  <a href="teaser.png" target="_blank">
+    <img src="teaser.png" alt="Teaser Image" class="teaser-image">
   </a>
-  
-  <h2>System Overview</h2>
-  <p>
-    🔗 <a href="overall_fig" target="_blank">Download the System Overview PDF</a>
+
+  <!-- Abstract centered -->
+  <h2>Abstract</h2>
+  <p class="abstract">
+    We present LUIVITON, an end-to-end system for fully automated virtual try-on, capable of draping complex,
+    multi-layer clothing onto diverse and arbitrarily posed humanoid characters. To address the challenge of aligning
+    complex garments with arbitrary and highly diverse body shapes, we use SMPL as a proxy representation and separate
+    the clothing-to-body draping problem into two correspondence tasks: 1) clothing-to-SMPL and 2) body-to-SMPL
+    correspondence, where each has its unique challenges. While we address the clothing-to-SMPL fitting problem using
+    a geometric learning-based approach for partial-to-complete shape correspondence prediction, we introduce a
+    diffusion model-based approach for body-to-SMPL correspondence using multi-view consistent appearance features
+    and a pre-trained 2D foundation model. Our method can handle complex geometries, non-manifold meshes, and
+    generalizes effectively to a wide range of humanoid characters—including humans, robots, cartoon subjects,
+    creatures, and aliens, while maintaining computational efficiency for practical adoption. In addition to offering
+    a fully automatic fitting solution, LUIVITON supports fast customization of clothing size, allowing users to adjust
+    clothing sizes and material properties after they have been draped. We show that our system can produce high-quality
+    3D clothing fittings without any human labor, even when 2D clothing sewing patterns are not available.
   </p>
 
+  <!-- System Overview -->
+  <h2>System Overview</h2>
+  <a href="overall_fig.png" target="_blank">
+    <img src="overall_fig.png" alt="System Overview" class="overview-image">
+  </a>
+
+  <!-- Video -->
   <h2>Video Presentation</h2>
   <div class="video-container">
     <iframe src="https://www.youtube.com/embed/ctG9DeKy6jc" 
             frameborder="0" allowfullscreen></iframe>
   </div>
   
+  <!-- GitHub -->
   <h2>More</h2>
   <p>
     🔗 <a href="https://github.com/cao-cong0/LUIVITON-Learned-Universal-Interoperable-VIrtual-Try-ON">
