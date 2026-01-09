@@ -1,0 +1,24 @@
+# Blender 5.0.1 MTL File: 'None'
+# www.blender.org
+
+newmtl Ch50_body.001
+Ka 0.500000 0.500000 0.500000
+Ks 0.500000 0.500000 0.500000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd Ch50_1001_Diffuse.png
+map_Ns Ch50_1001_Glossiness.png
+map_Ke Ch50_1001_Emissive.png
+map_Bump -bm 1.000000 Ch50_1001_Normal.png
+
+newmtl Ch50_body1.001
+Ka 0.500000 0.500000 0.500000
+Ks 0.500000 0.500000 0.500000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd Ch50_1002_Diffuse.png
+map_Ns Ch50_1002_Glossiness.png
+map_Ke Ch50_1002_Emissive.png
+map_Bump -bm 1.000000 Ch50_1002_Normal.png

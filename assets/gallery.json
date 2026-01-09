@@ -1,0 +1,170 @@
+[
+  {
+    "folder": "0581",
+    "label": "0581",
+    "models": [
+      {
+        "obj": "0581.obj",
+        "mtl": "0581.mtl"
+      },
+      {
+        "obj": "ori_beatrice_019.obj",
+        "mtl": "ori_beatrice_019.mtl"
+      }
+    ]
+  },
+  {
+    "folder": "1821",
+    "label": "1821",
+    "models": [
+      {
+        "obj": "1821.obj",
+        "mtl": "1821.mtl"
+      },
+      {
+        "obj": "ori_MV2_Work_Bib_Overalls.obj",
+        "mtl": "ori_MV2_Work_Bib_Overalls.mtl"
+      }
+    ]
+  },
+  {
+    "folder": "AJ_3",
+    "label": "AJ_3",
+    "models": [
+      {
+        "obj": "AJ_3.obj",
+        "mtl": "AJ_3.mtl"
+      },
+      {
+        "obj": "aneko_015_0_aneko_015_1.obj",
+        "mtl": "aneko_015_0_aneko_015_1.mtl"
+      }
+    ]
+  },
+  {
+    "folder": "Racer_1",
+    "label": "Racer_1",
+    "models": [
+      {
+        "obj": "Racer_1.obj",
+        "mtl": "Racer_1.mtl"
+      },
+      {
+        "obj": "mountain_parka.obj",
+        "mtl": "mountain_parka.mtl"
+      }
+    ]
+  },
+  {
+    "folder": "Trump",
+    "label": "Trump",
+    "models": [
+      {
+        "obj": "Trump.obj",
+        "mtl": "Trump.mtl"
+      },
+      {
+        "obj": "aaron_022_2.obj",
+        "mtl": "aaron_022_2.mtl"
+      }
+    ]
+  },
+  {
+    "folder": "boss_1",
+    "label": "boss_1",
+    "models": [
+      {
+        "obj": "boss_1.obj",
+        "mtl": "boss_1.mtl"
+      },
+      {
+        "obj": "jumpsuit.obj",
+        "mtl": "jumpsuit.mtl"
+      }
+    ]
+  },
+  {
+    "folder": "jade",
+    "label": "jade",
+    "models": [
+      {
+        "obj": "jade.obj",
+        "mtl": "jade.mtl"
+      },
+      {
+        "obj": "ori_MV2_Work_Bib_Overalls.obj",
+        "mtl": "ori_MV2_Work_Bib_Overalls.mtl"
+      }
+    ]
+  },
+  {
+    "folder": "mannequin_1",
+    "label": "mannequin_1",
+    "models": [
+      {
+        "obj": "mannequin_1.obj",
+        "mtl": "mannequin_1.mtl"
+      },
+      {
+        "obj": "z_h_Girl_Outfit_21.obj",
+        "mtl": "z_h_Girl_Outfit_21.mtl"
+      }
+    ]
+  },
+  {
+    "folder": "megan_2",
+    "label": "megan_2",
+    "models": [
+      {
+        "obj": "megan.obj",
+        "mtl": "megan.mtl"
+      },
+      {
+        "obj": "woman_s_cape.obj",
+        "mtl": "woman_s_cape.mtl"
+      }
+    ]
+  },
+  {
+    "folder": "mouse_1",
+    "label": "mouse_1",
+    "models": [
+      {
+        "obj": "mouse_1.obj",
+        "mtl": "mouse_1.mtl"
+      },
+      {
+        "obj": "ours_Swimsuit.obj",
+        "mtl": "ours_Swimsuit.mtl"
+      }
+    ]
+  },
+  {
+    "folder": "winne",
+    "label": "winne",
+    "models": [
+      {
+        "obj": "skirt.obj",
+        "mtl": "skirt.mtl"
+      },
+      {
+        "obj": "winne.obj",
+        "mtl": "winne.mtl"
+      }
+    ]
+  },
+  {
+    "folder": "zlorp_2",
+    "label": "zlorp_2",
+    "models": [
+      {
+        "obj": "aaron_022_combined.obj",
+        "mtl": "aaron_022_combined.mtl"
+      },
+      {
+        "obj": "zlorp_2.obj",
+        "mtl": "zlorp_2.mtl"
+      }
+    ]
+  }
+]

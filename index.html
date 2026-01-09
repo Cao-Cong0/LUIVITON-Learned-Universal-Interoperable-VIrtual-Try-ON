@@ -1,130 +1,849 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LUIVITON: Learned Universal Interoperable Virtual Try-ON</title>
+  <meta name="description"
+    content="An end-to-end system for fully automated virtual try-on, capable of draping complex, multi-layer clothing onto diverse and arbitrarily posed humanoid characters.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      max-width: 1200px;   /* wider text block */
-      margin: 40px auto;
+      font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
       line-height: 1.6;
+      color: #333;
+      background: #fff;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      padding: 60px 20px 40px;
+    }
+
+    .title {
+      font-size: 3.2em;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 12px;
+      letter-spacing: -1px;
+    }
+
+    .subtitle {
+      font-size: 1.3em;
+      color: #444;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+
+    .venue {
+      font-size: 1em;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    /* Authors */
+    .authors {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 30px;
+      margin-bottom: 8px;
+    }
+
+    .author {
       text-align: center;
     }
 
-    h1 {
-      font-size: 2.4em;
-      margin-bottom: 10px;
-    }
-    h2 {
-      margin-top: 50px;
-      text-align: center;   /* center section titles */
-      font-size: 1.8em;
-    }
-    .teaser-image, .overview-image {
-      display: block;
-      max-width: 100%;
-      height: auto;
-      margin: 20px auto;
-      border: 1px solid #ddd;
-    }
-    .abstract-box {
-      background-color: #f7f7f7;
-      padding: 25px 40px;
-      margin: 30px auto;
-      border-radius: 8px;
-      text-align: justify;
-      max-width: 1000px;   /* control just the abstract width */
-    }
-
-    .buttons {
-      margin: 20px 0;
-    }
-    
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      background-color: #333;
-      color: white;
-      padding: 10px 20px;
-      margin: 5px;
-      border-radius: 999px; /* pill shape */
+    .author a {
+      color: #0066cc;
       text-decoration: none;
       font-size: 1em;
-      transition: background 0.2s ease;
-    }
-    
-    .btn:hover {
-      background-color: #555;
-    }
-    
-    .btn i {
-      margin-right: 8px; /* space between icon and text */
     }
 
-    .video-container {
+    .author a:hover {
+      text-decoration: underline;
+    }
+
+    .author sup {
+      font-size: 0.7em;
+      color: #666;
+    }
+
+    .affiliations {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 5px 25px;
+      margin-top: 12px;
+      font-size: 0.9em;
+      color: #555;
+    }
+
+    .affiliation sup {
+      font-size: 0.7em;
+      margin-right: 2px;
+    }
+
+    .equal-contrib {
+      font-size: 0.85em;
+      color: #777;
+      margin-top: 15px;
+    }
+
+    /* Links Row */
+    .links {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 35px 0 50px;
+      flex-wrap: wrap;
+    }
+
+    .link-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: #333;
+      transition: transform 0.2s;
+    }
+
+    .link-item:hover {
+      transform: translateY(-3px);
+    }
+
+    .link-icon {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+
+    .link-icon i {
+      font-size: 2.2em;
+      color: #333;
+    }
+
+    .link-icon img {
+      width: 45px;
+      height: 45px;
+    }
+
+    .link-label {
+      font-size: 0.95em;
+      font-weight: 500;
+    }
+
+    /* Sections */
+    .section {
+      padding: 30px 0;
+    }
+
+    .section-title {
+      font-size: 28px;
+      font-weight: 300;
+      color: #333;
+      margin-top: 40px;
+      margin-bottom: 23px;
+      text-align: left;
+    }
+
+    /* Teaser Image */
+    .teaser {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .teaser img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+
+    /* Abstract */
+    .abstract {
+      background: #f8f8f8;
+      padding: 30px 40px;
+      border-radius: 8px;
+      text-align: justify;
+      font-size: 1em;
+      line-height: 1.8;
+    }
+
+    /* Pipeline Image */
+    .pipeline {
+      text-align: center;
+    }
+
+    .pipeline img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+
+    /* 3D Gallery Grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .gallery-item {
       position: relative;
-      padding-bottom: 56.25%; /* 16:9 */
+      background: #fafafa;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #e8e8e8;
+    }
+
+    .gallery-viewer {
+      width: 100%;
+      height: 280px;
+      background: transparent;
+    }
+
+    .gallery-label {
+      text-align: center;
+      padding: 8px;
+      font-size: 12px;
+      color: #666;
+      background: #f5f5f5;
+      border-top: 1px solid #e8e8e8;
+    }
+
+    .gallery-loading {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(250, 250, 250, 0.9);
+      color: #888;
+      font-size: 12px;
+    }
+
+    .gallery-loading.hidden {
+      display: none;
+    }
+
+    .spinner-small {
+      width: 24px;
+      height: 24px;
+      border: 2px solid rgba(0, 0, 0, 0.1);
+      border-top-color: #667eea;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    /* Main Viewer */
+    .main-viewer-container {
+      width: 100%;
+      height: 500px;
+      position: relative;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      overflow: hidden;
+      background: transparent;
+    }
+
+    .main-viewer-loading {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: rgba(250, 250, 250, 0.9);
+      color: #666;
+      font-size: 14px;
+    }
+
+    .main-viewer-loading.hidden {
+      display: none;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Video */
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
       height: 0;
       overflow: hidden;
+      border-radius: 0;
     }
-    .video-container iframe {
+
+    .video-wrapper iframe {
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .video-caption {
+      display: block;
+      text-align: center;
+      font-size: 12px;
+      color: rgb(51, 51, 51);
+      margin-top: 10px;
+    }
+
+    .video-caption a {
+      color: rgb(51, 51, 51);
+      text-decoration: underline;
+    }
+
+    /* Citation */
+    .citation-box {
+      background: #f5f5f5;
+      border-left: 4px solid #333;
+      padding: 15px 20px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.85em;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #999;
+      font-size: 0.85em;
+      border-top: 1px solid #eee;
+      margin-top: 50px;
+    }
+
+    .footer a {
+      color: #666;
+    }
+
+    /* Container for viewer */
+    .viewer-container-wrapper {
+      position: relative;
+    }
+
+    @media (max-width: 768px) {
+      .title {
+        font-size: 2.2em;
+      }
+
+      .authors {
+        gap: 5px 15px;
+      }
+
+      .links {
+        gap: 25px;
+      }
+
+      .abstract {
+        padding: 20px;
+      }
     }
   </style>
-
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
-  <h1>LUIVITON: Learned Universal Interoperable Virtual Try-ON</h1>
 
-  <!-- Buttons under the title -->
-  <div class="buttons">
-    <a href="https://arxiv.org/abs/2509.05030" class="btn"><i class="fa-solid fa-book"></i> ArXiv</a>
-    <a href="https://arxiv.org/pdf/2509.05030" class="btn"><i class="fa-solid fa-file-lines"></i> Paper</a>
-    <a href="https://github.com/cao-cong0/LUIVITON-Learned-Universal-Interoperable-VIrtual-Try-ON" class="btn"><i class="fab fa-github"></i> Code</a>
+  <!-- Header -->
+  <header class="header">
+    <h1 class="title">LUIVITON</h1>
+    <p class="subtitle">Learned Universal Interoperable Virtual Try-ON</p>
+    <p class="venue">CVPR 2025</p>
+
+    <div class="authors">
+      <div class="author"><a href="#">Author One</a><sup>1*</sup></div>
+      <div class="author"><a href="#">Author Two</a><sup>1*</sup></div>
+      <div class="author"><a href="#">Author Three</a><sup>2</sup></div>
+      <div class="author"><a href="#">Author Four</a><sup>1</sup></div>
+    </div>
+
+    <div class="affiliations">
+      <span><sup>1</sup>Institution One</span>
+      <span><sup>2</sup>Institution Two</span>
+    </div>
+
+    <p class="equal-contrib">*Denotes Equal Contribution</p>
+  </header>
+
+  <!-- Links -->
+  <div class="container">
+    <div class="links">
+      <a href="https://arxiv.org/abs/2509.05030" class="link-item" target="_blank">
+        <div class="link-icon"><i class="fas fa-file-pdf"></i></div>
+        <span class="link-label">Paper</span>
+      </a>
+      <a href="https://github.com/cao-cong0/LUIVITON-Learned-Universal-Interoperable-VIrtual-Try-ON" class="link-item"
+        target="_blank">
+        <div class="link-icon"><i class="fab fa-github"></i></div>
+        <span class="link-label">&lt;/Code&gt;</span>
+      </a>
+      <a href="https://arxiv.org/abs/2509.05030" class="link-item" target="_blank">
+        <div class="link-icon"><i class="fas fa-database"></i></div>
+        <span class="link-label">Data</span>
+      </a>
+    </div>
+
+    <!-- Video (right after teaser like NeRF) -->
+    <section class="section">
+      <h2 class="section-title">Overview Video</h2>
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/ctG9DeKy6jc" allowfullscreen></iframe>
+      </div>
+      <p class="video-caption"><a href="https://www.youtube.com/watch?v=ctG9DeKy6jc" target="_blank">LUIVITON Project
+          Video</a></p>
+    </section>
+
+    <!-- Abstract -->
+    <section class="section">
+      <h2 class="section-title">Abstract</h2>
+      <div class="abstract">
+        We present LUIVITON, an end-to-end system for fully automated virtual try-on, capable of draping complex,
+        multi-layer clothing onto diverse and arbitrarily posed humanoid characters. To address the challenge of
+        aligning complex garments with arbitrary and highly diverse body shapes, we use SMPL as a proxy representation
+        and separate the clothing-to-body draping problem into two correspondence tasks: 1) clothing-to-SMPL and 2)
+        body-to-SMPL correspondence, where each has its unique challenges. While we address the clothing-to-SMPL fitting
+        problem using a geometric learning-based approach for partial-to-complete shape correspondence prediction, we
+        introduce a diffusion model-based approach for body-to-SMPL correspondence using multi-view consistent
+        appearance features and a pre-trained 2D foundation model. Our method can handle complex geometries,
+        non-manifold meshes, and generalizes effectively to a wide range of humanoid characters—including humans,
+        robots, cartoon subjects, creatures, and aliens, while maintaining computational efficiency for practical
+        adoption. In addition to offering a fully automatic fitting solution, LUIVITON supports fast customization of
+        clothing size, allowing users to adjust clothing sizes and material properties after they have been draped. We
+        show that our system can produce high-quality 3D clothing fittings without any human labor, even when 2D
+        clothing sewing patterns are not available.
+      </div>
+    </section>
+
+    <!-- Pipeline -->
+    <section class="section">
+      <h2 class="section-title">Method Overview</h2>
+      <div class="pipeline">
+        <a href="assets/images/pipeline.png" target="_blank">
+          <img src="assets/images/pipeline.png" alt="System Pipeline">
+        </a>
+      </div>
+      <div class="method-description"
+        style="margin-top: 30px; text-align: justify; color: #444; font-size: 16px; line-height: 1.6;">
+        <p style="margin-bottom: 15px;">
+          LUIVITON is a fully automated virtual try-on system that dresses arbitrary 3D garments onto arbitrarily posed
+          humanoid characters without requiring a dressed source avatar, skeleton rigs, or predefined correspondences.
+          Given a rest-posed garment mesh and a target humanoid body, we use SMPL as an intermediate proxy and decompose
+          the dressing task into correspondence prediction, registration, and simulation-based fitting.
+        </p>
+        <p style="margin-bottom: 15px;">
+          First, we estimate dense correspondences in two complementary branches. For clothing-to-body alignment, we
+          predict clothing-to-SMPL correspondences using a DiffusionNet-based surface network that learns
+          partial-to-complete mappings in SMPL UV space, enabling robust handling of complex, multilayer, and
+          non-manifold garments. In parallel, we predict body-to-SMPL correspondences using a diffusion-based
+          correspondence predictor that leverages multi-view consistent diffusion features and semantic cues from a
+          pretrained vision foundation model, allowing robust alignment across large pose variation and stylized body
+          shapes.
+        </p>
+        <p style="margin-bottom: 15px;">
+          Next, we perform two registration steps guided by these correspondences. We first register SMPL inside the
+          garment to obtain a clothing-aligned proxy, and then register an extended SMPL+D model to the target body
+          using additional per-vertex displacements and anisotropic scaling to accommodate extreme proportions.
+        </p>
+        <p>
+          Finally, we interpolate shape and pose between the registered SMPL and SMPL+D representations to construct a
+          smooth transition sequence, which drives a neural cloth simulator to transfer the garment onto the target
+          body. This staged transition avoids unstable collisions and produces physically plausible draping while
+          preserving garment structure. The resulting pipeline generalizes to unseen garments and bodies and supports
+          automatic, high-quality 3D virtual try-on without human intervention.
+        </p>
+      </div>
+    </section>
+
+    <!-- Main 3D Demo -->
+    <section class="section">
+      <h2 class="section-title">Interactive 3D Demo</h2>
+      <p style="color: #666; font-size: 14px; margin-bottom: 15px;">Drag to rotate • Scroll to zoom</p>
+      <div class="main-viewer-container" id="main-viewer">
+        <div class="main-viewer-loading" id="main-loading">
+          <div class="spinner-small"></div>
+          <span>Loading 3D model...</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results Gallery - Small 3D Viewers Grid -->
+    <section class="section">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+        <div>
+          <h2 class="section-title" style="margin-bottom: 5px;">Results Gallery</h2>
+          <p style="color: #666; font-size: 14px;">Drag to rotate • Scroll to zoom</p>
+        </div>
+        <button id="toggle-textures-btn" class="nav-button" style="font-size: 14px; padding: 8px 16px;">
+          <i class="fas fa-toggle-on"></i> Toggle Body Textures
+        </button>
+      </div>
+      <div class="gallery-grid" id="gallery-grid">
+        <!-- Viewers will be dynamically created -->
+      </div>
+    </section>
+
+    <!-- Animation Gallery -->
+    <section class="section">
+      <h2 class="section-title">Animation Gallery</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <video autoplay loop muted playsinline class="gallery-video"
+            style="width: 100%; display: block; background: #000;">
+            <source src="assets/Videos/Animation/Amy/Amy0000-0410.mp4" type="video/mp4">
+          </video>
+          <div class="gallery-label">Amy</div>
+        </div>
+        <div class="gallery-item">
+          <video autoplay loop muted playsinline class="gallery-video"
+            style="width: 100%; display: block; background: #000;">
+            <source src="assets/Videos/Animation/Jody/J%20ody0001-0743.mp4" type="video/mp4">
+          </video>
+          <div class="gallery-label">Jody</div>
+        </div>
+        <div class="gallery-item">
+          <video autoplay loop muted playsinline class="gallery-video"
+            style="width: 100%; display: block; background: #000;">
+            <source src="assets/Videos/Animation/Mannequin/mannequin0001-0141.mp4" type="video/mp4">
+          </video>
+          <div class="gallery-label">Mannequin</div>
+        </div>
+        <div class="gallery-item">
+          <video autoplay loop muted playsinline class="gallery-video"
+            style="width: 100%; display: block; background: #000;">
+            <source src="assets/Videos/Animation/Mutant/mutant0000-0082.mp4" type="video/mp4">
+          </video>
+          <div class="gallery-label">Mutant</div>
+        </div>
+        <div class="gallery-item">
+          <video autoplay loop muted playsinline class="gallery-video"
+            style="width: 100%; display: block; background: #000;">
+            <source src="assets/Videos/Animation/Ortiz/Ortiz0000-0087.mp4" type="video/mp4">
+          </video>
+          <div class="gallery-label">Ortiz</div>
+        </div>
+        <div class="gallery-item">
+          <video autoplay loop muted playsinline class="gallery-video"
+            style="width: 100%; display: block; background: #000;">
+            <source src="assets/Videos/Animation/Xbot/X_bot0000-0082.mp4" type="video/mp4">
+          </video>
+          <div class="gallery-label">Xbot</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Citation -->
+    <section class="section">
+      <h2 class="section-title">Citation</h2>
+      <div class="citation-box">@inproceedings{luiviton2025,
+        title={LUIVITON: Learned Universal Interoperable Virtual Try-ON},
+        author={Author One and Author Two and Author Three and Author Four},
+        booktitle={CVPR},
+        year={2025}
+        }</div>
+    </section>
   </div>
 
-  <!-- Teaser -->
-  <a href="teaser.png" target="_blank">
-    <img src="teaser.png" alt="Teaser Image" class="teaser-image">
-  </a>
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Template inspired by <a href="https://www.matthewtancik.com/nerf" target="_blank">NeRF</a></p>
+  </footer>
 
-  <!-- Abstract in grey box -->
-  <h2>📖 Abstract</h2>
-  <div class="abstract-box">
-    <p>
-      We present LUIVITON, an end-to-end system for fully automated virtual try-on, capable of draping complex,
-      multi-layer clothing onto diverse and arbitrarily posed humanoid characters. To address the challenge of aligning
-      complex garments with arbitrary and highly diverse body shapes, we use SMPL as a proxy representation and separate
-      the clothing-to-body draping problem into two correspondence tasks: 1) clothing-to-SMPL and 2) body-to-SMPL
-      correspondence, where each has its unique challenges. While we address the clothing-to-SMPL fitting problem using
-      a geometric learning-based approach for partial-to-complete shape correspondence prediction, we introduce a
-      diffusion model-based approach for body-to-SMPL correspondence using multi-view consistent appearance features
-      and a pre-trained 2D foundation model. Our method can handle complex geometries, non-manifold meshes, and
-      generalizes effectively to a wide range of humanoid characters—including humans, robots, cartoon subjects,
-      creatures, and aliens, while maintaining computational efficiency for practical adoption. In addition to offering
-      a fully automatic fitting solution, LUIVITON supports fast customization of clothing size, allowing users to adjust
-      clothing sizes and material properties after they have been draped. We show that our system can produce high-quality
-      3D clothing fittings without any human labor, even when 2D clothing sewing patterns are not available.
-    </p>
-  </div>
+  <!-- Three.js -->
+  <script type="importmap">
+  { "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }}
+  </script>
 
-  <!-- System Overview -->
-  <h2>🖼️ System Overview</h2>
-  <a href="pipeline.png" target="_blank">
-    <img src="pipeline.png" alt="System Overview" class="overview-image">
-  </a>
+  <script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+    import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
+    import { MTLLoader } from 'three/addons/loaders/MTLLoader.js';
 
-  <!-- Video -->
-  <h2>🎥 Video</h2>
-  <div class="video-container">
-    <iframe src="https://www.youtube.com/embed/ctG9DeKy6jc" 
-            frameborder="0" allowfullscreen></iframe>
-  </div>
+    const viewers = [];
+
+    // ========== MAIN VIEWER (FINAL.obj) ==========
+    (function createMainViewer() {
+      const container = document.getElementById('main-viewer');
+      const loadingEl = document.getElementById('main-loading');
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(50, container.clientWidth / container.clientHeight, 0.01, 10000);
+      camera.position.set(3, 2, 3);
+
+      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer.setClearColor(0x000000, 0);
+      renderer.setSize(container.clientWidth, container.clientHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.outputColorSpace = THREE.SRGBColorSpace;
+      renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      renderer.toneMappingExposure = 1.5;
+      container.appendChild(renderer.domElement);
+
+      const controls = new OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.05;
+      controls.autoRotate = true;
+      controls.autoRotateSpeed = 0.8;
+
+      // Lighting
+      scene.add(new THREE.AmbientLight(0xffffff, 1.2));
+      scene.add(new THREE.HemisphereLight(0xffffff, 0x888888, 1.0));
+      const keyLight = new THREE.DirectionalLight(0xffffff, 2.0);
+      keyLight.position.set(5, 10, 5);
+      scene.add(keyLight);
+      const fillLight = new THREE.DirectionalLight(0xffffff, 1.2);
+      fillLight.position.set(-5, 5, -5);
+      scene.add(fillLight);
+
+      viewers.push({ scene, camera, renderer, controls, container });
+
+      // Load FINAL.obj
+      const basePath = 'assets/models/';
+      const mtlLoader = new MTLLoader();
+      mtlLoader.setPath(basePath);
+      mtlLoader.setResourcePath(basePath);
+
+      mtlLoader.load('FINAL.mtl', materials => {
+        materials.preload();
+        const objLoader = new OBJLoader();
+        objLoader.setMaterials(materials);
+        objLoader.load(basePath + 'FINAL.obj', obj => {
+          scene.add(obj);
+          // Center model
+          const box = new THREE.Box3().setFromObject(obj);
+          const center = box.getCenter(new THREE.Vector3());
+          const size = box.getSize(new THREE.Vector3());
+          obj.position.sub(center);
+          const maxDim = Math.max(size.x, size.y, size.z);
+          camera.position.set(0, maxDim * 0.15, maxDim * 0.4);
+          camera.far = maxDim * 20;
+          camera.near = maxDim * 0.001;
+          camera.updateProjectionMatrix();
+          controls.target.set(0, 0, 0);
+          loadingEl.classList.add('hidden');
+        });
+      }, undefined, () => {
+        const objLoader = new OBJLoader();
+        objLoader.load(basePath + 'FINAL.obj', obj => {
+          obj.traverse(c => { if (c.isMesh) c.material = new THREE.MeshStandardMaterial({ color: 0x888888 }); });
+          scene.add(obj);
+          loadingEl.classList.add('hidden');
+        });
+      });
+    })();
+
+    // ========== GALLERY VIEWERS ==========
+    (function createGallery() {
+      const galleryGrid = document.getElementById('gallery-grid');
+      const basePath = 'assets/Gallery/';
+
+      const characterMeshes = [];
+      let texturesEnabled = true;
+
+      const toggleBtn = document.getElementById('toggle-textures-btn');
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
+          texturesEnabled = !texturesEnabled;
+          if (texturesEnabled) {
+            toggleBtn.innerHTML = '<i class="fas fa-toggle-on"></i> Toggle Body Textures';
+            characterMeshes.forEach(mesh => {
+              if (mesh.userData.originalMaterial) mesh.material = mesh.userData.originalMaterial;
+            });
+          } else {
+            toggleBtn.innerHTML = '<i class="fas fa-toggle-off"></i> Toggle Body Textures';
+            const whiteMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.5 });
+            characterMeshes.forEach(mesh => {
+              mesh.material = whiteMat;
+            });
+          }
+        });
+      }
+
+      fetch('assets/gallery.json')
+        .then(response => response.json())
+        .then(data => {
+          data.forEach(itemConfig => {
+            // Create DOM elements
+            const item = document.createElement('div');
+            item.className = 'gallery-item';
+
+            const viewerDiv = document.createElement('div');
+            viewerDiv.className = 'gallery-viewer';
+            const loadingDiv = document.createElement('div');
+            loadingDiv.className = 'gallery-loading';
+            loadingDiv.innerHTML = '<div class="spinner-small"></div>';
+
+            const labelDiv = document.createElement('div');
+            labelDiv.className = 'gallery-label';
+            labelDiv.textContent = itemConfig.label;
+
+            item.appendChild(viewerDiv);
+            item.appendChild(loadingDiv);
+            item.appendChild(labelDiv);
+            galleryGrid.appendChild(item);
+
+            // Three.js Setup
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(45, viewerDiv.clientWidth / viewerDiv.clientHeight, 0.01, 1000);
+            camera.position.set(0, 1, 2.5); // Initial position
+
+            const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(viewerDiv.clientWidth, viewerDiv.clientHeight);
+            renderer.setClearColor(0x000000, 0);
+            renderer.outputColorSpace = THREE.SRGBColorSpace;
+            renderer.toneMapping = THREE.ACESFilmicToneMapping;
+            renderer.toneMappingExposure = 1.2;
+            viewerDiv.appendChild(renderer.domElement);
+
+            const controls = new OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.autoRotate = true;
+            controls.autoRotateSpeed = 2.0;
+
+            // Lighting
+            scene.add(new THREE.AmbientLight(0xffffff, 0.4));
+            scene.add(new THREE.HemisphereLight(0xffffff, 0x444444, 0.6));
+            const dirLight = new THREE.DirectionalLight(0xffffff, 1.2);
+            dirLight.position.set(2, 5, 5);
+            scene.add(dirLight);
+
+            viewers.push({ scene, camera, renderer, controls, container: viewerDiv });
+
+            // Load all models for this item
+            const folderPath = basePath + itemConfig.folder + '/';
+            const mtlLoader = new MTLLoader();
+            mtlLoader.setPath(folderPath);
+            mtlLoader.setResourcePath(folderPath);
+
+            let loadedCount = 0;
+            const totalModels = itemConfig.models.length;
+            const group = new THREE.Group();
+            scene.add(group);
+
+            itemConfig.models.forEach(modelDef => {
+              const loadObj = (materials) => {
+                const objLoader = new OBJLoader(); // NEw loader instance per model!
+                if (materials) {
+                  materials.preload();
+                  objLoader.setMaterials(materials);
+                }
+
+                objLoader.load(folderPath + modelDef.obj, obj => {
+                  // Apply default material if no MTL
+                  if (!materials) {
+                    obj.traverse(c => {
+                      if (c.isMesh) c.material = new THREE.MeshStandardMaterial({ color: 0xcccccc });
+                    });
+                  }
+
+                  // Store reference if this is a character body
+                  const fileBase = modelDef.obj.replace('.obj', '');
+                  const isBody = modelDef.obj.includes(itemConfig.folder) || itemConfig.folder.includes(fileBase);
+
+                  if (isBody) {
+                    obj.traverse(c => {
+                      if (c.isMesh) {
+                        c.userData.originalMaterial = c.material;
+                        characterMeshes.push(c);
+                        if (!texturesEnabled) {
+                          c.material = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.5 });
+                        }
+                      }
+                    });
+                  }
+
+                  group.add(obj);
+                  loadedCount++;
+
+                  if (loadedCount === totalModels) {
+                    // Center everything
+                    const box = new THREE.Box3().setFromObject(group);
+                    const center = box.getCenter(new THREE.Vector3());
+                    const size = box.getSize(new THREE.Vector3());
+
+                    group.position.sub(center); // Center group at origin
+
+                    // Adjust camera
+                    const maxDim = Math.max(size.x, size.y, size.z);
+                    camera.position.set(0, maxDim * 0.2, maxDim * 2.0);
+                    camera.lookAt(0, 0, 0);
+                    controls.target.set(0, 0, 0);
+
+                    loadingDiv.classList.add('hidden');
+                  }
+                });
+              };
+
+              if (modelDef.mtl) {
+                mtlLoader.load(modelDef.mtl, loadObj, undefined, () => loadObj(null));
+              } else {
+                loadObj(null);
+              }
+            });
+          });
+        })
+        .catch(err => console.error("Failed to load gallery manifest:", err));
+    })();
+    // Animation loop
+    function animate() {
+      requestAnimationFrame(animate);
+      viewers.forEach(v => {
+        v.controls.update();
+        v.renderer.render(v.scene, v.camera);
+      });
+    }
+    animate();
+
+    // Handle resize
+    window.addEventListener('resize', () => {
+      viewers.forEach(v => {
+        v.camera.aspect = v.container.clientWidth / v.container.clientHeight;
+        v.camera.updateProjectionMatrix();
+        v.renderer.setSize(v.container.clientWidth, v.container.clientHeight);
+      });
+    });
+  </script>
 
 </body>
+
 </html>

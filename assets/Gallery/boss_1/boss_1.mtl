@@ -1,0 +1,68 @@
+# Blender 5.0.1 MTL File: 'None'
+# www.blender.org
+
+newmtl Cigar_Mat
+Ns 123.076927
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd Boss_diffuse.png
+map_Bump -bm 1.000000 Boss_normal.png
+
+newmtl Clothes_MAT
+Ns 369.230743
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd Boss_diffuse.png
+map_Bump -bm 1.000000 Boss_normal.png
+
+newmtl Clothes_MAT.001
+Ns 369.230743
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd Boss_diffuse.png
+map_Bump -bm 1.000000 Boss_normal.png
+
+newmtl Eyes_MAT
+Ns 938.461548
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd Boss_diffuse.png
+map_Bump -bm 1.000000 Boss_normal.png
+
+newmtl Eyes_MAT.001
+Ns 938.461548
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd Boss_diffuse.png
+map_Bump -bm 1.000000 Boss_normal.png
+
+newmtl Skin_MAT
+Ns 138.461548
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd Boss_diffuse.png
+map_Bump -bm 1.000000 Boss_normal.png

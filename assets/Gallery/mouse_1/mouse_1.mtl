@@ -1,0 +1,13 @@
+# Blender 5.0.1 MTL File: 'None'
+# www.blender.org
+
+newmtl Ch14_Body.001
+Ka 0.500000 0.500000 0.500000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd Ch14_1001_Diffuse.png
+map_Ns Ch14_1001_Glossiness.png
+map_Bump -bm 1.000000 Ch14_1001_Normal.png
