@@ -41,24 +41,57 @@
     }
 
     .title {
-      font-size: 3.2em;
-      font-weight: 700;
+      font-size: 3em;
+      font-weight: 600;
       color: #222;
-      margin-bottom: 12px;
+      margin-bottom: 2px;
       letter-spacing: -1px;
     }
 
     .subtitle {
-      font-size: 1.3em;
+      font-size: 2.3em;
       color: #444;
-      font-weight: 400;
+      font-weight: 500;
       margin-bottom: 8px;
     }
 
+    .letter-l {
+      color: #003f5c;
+    }
+
+    .letter-u {
+      color: #2f4b7c;
+    }
+
+    .letter-i {
+      color: #665191;
+    }
+
+    .letter-v {
+      color: #a05195;
+    }
+
+    .letter-i2 {
+      color: #d45087;
+    }
+
+    .letter-t {
+      color: #f95d6a;
+    }
+
+    .letter-o {
+      color: #ff7c43;
+    }
+
+    .letter-n {
+      color: #ffa600;
+    }
+
     .venue {
-      font-size: 1em;
+      font-size: 1.5em;
       color: #666;
       margin-bottom: 30px;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
     }
 
     /* Authors */
@@ -77,7 +110,7 @@
     .author a {
       color: #0066cc;
       text-decoration: none;
-      font-size: 1em;
+      font-size: 1.3em;
     }
 
     .author a:hover {
@@ -95,7 +128,7 @@
       justify-content: center;
       gap: 5px 25px;
       margin-top: 12px;
-      font-size: 0.9em;
+      font-size: 1.1em;
       color: #555;
     }
 
@@ -383,23 +416,36 @@
 
   <!-- Header -->
   <header class="header">
-    <h1 class="title">LUIVITON</h1>
-    <p class="subtitle">Learned Universal Interoperable Virtual Try-ON</p>
-    <p class="venue">CVPR 2025</p>
+    <h1 class="title">
+      <span class="letter-l">L</span><span class="letter-u">U</span><span class="letter-i">I</span><span
+        class="letter-v">V</span><span class="letter-i2">I</span><span class="letter-t">T</span><span
+        class="letter-o">O</span><span class="letter-n">N</span>
+    </h1>
+    <p class="subtitle"><span class="letter-l">L</span>earned <span class="letter-u">U</span>niversal <span
+        class="letter-i">I</span>nteroperable <span class="letter-v">V</span><span
+        class="letter-i2">I</span>rtual <span class="letter-t">T</span>ry-<span class="letter-o">O</span><span
+        class="letter-n">N</span></p>
+    <p class="venue">ACM Transactions on Graphics (SIGGRAPH 2026)</p>
 
     <div class="authors">
-      <div class="author"><a href="#">Author One</a><sup>1*</sup></div>
-      <div class="author"><a href="#">Author Two</a><sup>1*</sup></div>
-      <div class="author"><a href="#">Author Three</a><sup>2</sup></div>
-      <div class="author"><a href="#">Author Four</a><sup>1</sup></div>
+      <div class="author"><a href="mailto:cong.cao@mbzuai.ac.ae">Cong Cao</a><sup>1</sup></div>
+      <div class="author"><a href="mailto:xianhang.cheng@mbzuai.ac.ae">Xianhang Cheng</a><sup>1</sup></div>
+      <div class="author"><a href="mailto:jliucb@connect.ust.hk">Jingyuan Liu</a><sup>2,1</sup></div>
+      <div class="author"><a href="mailto:yujian.zheng@mbzuai.ac.ae">Yujian Zheng</a><sup>1,&#8224;</sup></div>
+      <div class="author"><a href="mailto:zhenhui.lin@mbzuai.ac.ae">Zhenhui Lin</a><sup>1</sup></div>
+      <div class="author"><a href="mailto:ren.li@mbzuai.ac.ae">Ren Li</a><sup>1,3</sup></div>
+      <div class="author"><a href="mailto:meriem.chkir@mbzuai.ac.ae">Meriem Chkir</a><sup>1</sup></div>
+      <div class="author"><a href="mailto:hao@hao-li.com">Hao Li</a><sup>4,1,&#8224;</sup></div>
     </div>
 
     <div class="affiliations">
-      <span><sup>1</sup>Institution One</span>
-      <span><sup>2</sup>Institution Two</span>
+      <span><sup>1</sup>Mohamed Bin Zayed University of Artificial Intelligence</span>
+      <span><sup>2</sup>The University of Tokyo</span>
+      <span><sup>3</sup>SUSTech</span>
+      <span><sup>4</sup>Pinscreen</span>
     </div>
 
-    <p class="equal-contrib">*Denotes Equal Contribution</p>
+    <p class="equal-contrib"><sup>&#8224;</sup>Co-corresponding authors</p>
   </header>
 
   <!-- Links -->
@@ -434,20 +480,9 @@
     <section class="section">
       <h2 class="section-title">Abstract</h2>
       <div class="abstract">
-        We present LUIVITON, an end-to-end system for fully automated virtual try-on, capable of draping complex,
-        multi-layer clothing onto diverse and arbitrarily posed humanoid characters. To address the challenge of
-        aligning complex garments with arbitrary and highly diverse body shapes, we use SMPL as a proxy representation
-        and separate the clothing-to-body draping problem into two correspondence tasks: 1) clothing-to-SMPL and 2)
-        body-to-SMPL correspondence, where each has its unique challenges. While we address the clothing-to-SMPL fitting
-        problem using a geometric learning-based approach for partial-to-complete shape correspondence prediction, we
-        introduce a diffusion model-based approach for body-to-SMPL correspondence using multi-view consistent
-        appearance features and a pre-trained 2D foundation model. Our method can handle complex geometries,
-        non-manifold meshes, and generalizes effectively to a wide range of humanoid characters—including humans,
-        robots, cartoon subjects, creatures, and aliens, while maintaining computational efficiency for practical
-        adoption. In addition to offering a fully automatic fitting solution, LUIVITON supports fast customization of
-        clothing size, allowing users to adjust clothing sizes and material properties after they have been draped. We
-        show that our system can produce high-quality 3D clothing fittings without any human labor, even when 2D
-        clothing sewing patterns are not available.
+        To enable large-scale reuse of real-world 3D assets-where garments and characters rarely share skeletons, templates, or dense correspondences-we present a fully automated virtual try-on system that dresses complex, multi-layer garments onto diverse, arbitrarily posed humanoids. Our key idea is to use SMPL as an intermediate proxy and decompose clothing-to-body transfer into two correspondence tasks with distinct challenges: (1) clothing-to-SMPL (partial-to-complete alignment) and (2) body-to-SMPL (large pose/shape variation and stylization). We address clothing-to-SMPL using a geometry-driven correspondence model, and introduce a diffusion-based body-to-SMPL correspondence approach that leverages multi-view consistent appearance features together with a pretrained 2D foundation model. Using these correspondences, we register SMPL/SMPL+D (Displacement) to the garment and target body and then perform simulator-driven fitting by transferring the garment along a smooth SMPL-to-SMPL+D transition, producing physically plausible draping on the target. Our system handles complex garment topology (including non-manifold meshes) and generalizes to a wide range of humanoid characters (e.g., humans, robots, cartoons, and creatures) while remaining computationally practical. Upon draping, our system also supports fast customization of clothing size. We show that our system
+can produce high-quality 3D clothing fittings without any human labor,
+even when 2D clothing sewing patterns are not available.
       </div>
     </section>
 
@@ -462,7 +497,7 @@
       <div class="method-description"
         style="margin-top: 30px; text-align: justify; color: #444; font-size: 16px; line-height: 1.6;">
         <p style="margin-bottom: 15px;">
-          LUIVITON is a fully automated virtual try-on system that dresses arbitrary 3D garments onto arbitrarily posed
+          Our system is a fully automated virtual try-on system that dresses arbitrary 3D garments onto arbitrarily posed
           humanoid characters without requiring a dressed source avatar, skeleton rigs, or predefined correspondences.
           Given a rest-posed garment mesh and a target humanoid body, we use SMPL as an intermediate proxy and decompose
           the dressing task into correspondence prediction, registration, and simulation-based fitting.
@@ -569,15 +604,6 @@
     </section>
 
     <!-- Citation -->
-    <section class="section">
-      <h2 class="section-title">Citation</h2>
-      <div class="citation-box">@inproceedings{luiviton2025,
-        title={LUIVITON: Learned Universal Interoperable Virtual Try-ON},
-        author={Author One and Author Two and Author Three and Author Four},
-        booktitle={CVPR},
-        year={2025}
-        }</div>
-    </section>
   </div>
 
   <!-- Footer -->
