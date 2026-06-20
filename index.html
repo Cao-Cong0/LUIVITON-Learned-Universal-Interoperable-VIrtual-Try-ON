@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -363,11 +362,16 @@
 
     /* Citation */
     .citation-box {
-      background: #f5f5f5;
-      border-left: 4px solid #333;
-      padding: 15px 20px;
-      font-family: 'Courier New', monospace;
-      font-size: 0.85em;
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(29, 39, 51, 0.1);
+      border-left: 4px solid #003f5c;
+      border-radius: 8px;
+      padding: 22px 24px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 0.92rem;
+      line-height: 1.65;
+      color: #263240;
+      box-shadow: 0 12px 28px rgba(20, 32, 45, 0.08);
       overflow-x: auto;
       white-space: pre-wrap;
       word-break: break-word;
@@ -409,6 +413,1349 @@
         padding: 20px;
       }
     }
+
+    :root {
+      --ink: #18212b;
+      --muted: #637083;
+      --line: rgba(24, 33, 43, 0.12);
+      --panel: rgba(255, 255, 255, 0.82);
+      --teal: #0f766e;
+      --coral: #e85d50;
+      --gold: #d99a22;
+      --violet: #6f5ab8;
+      --shadow: 0 22px 65px rgba(21, 32, 43, 0.14);
+      --shadow-soft: 0 14px 38px rgba(21, 32, 43, 0.1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, rgba(240, 246, 249, 0.95) 0%, rgba(255, 255, 255, 0.98) 34%, rgba(247, 248, 250, 0.95) 100%),
+        repeating-linear-gradient(90deg, rgba(24, 33, 43, 0.035) 0 1px, transparent 1px 96px),
+        repeating-linear-gradient(0deg, rgba(24, 33, 43, 0.03) 0 1px, transparent 1px 96px);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(120deg, rgba(15, 118, 110, 0.1), transparent 28%),
+        linear-gradient(240deg, rgba(232, 93, 80, 0.09), transparent 34%),
+        linear-gradient(0deg, rgba(217, 154, 34, 0.05), transparent 46%);
+      z-index: -1;
+    }
+
+    .container {
+      max-width: 1120px;
+      padding: 0 28px;
+    }
+
+    .section {
+      position: relative;
+    }
+
+    .header {
+      position: relative;
+      padding: 74px 20px 28px;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.54)),
+        linear-gradient(100deg, rgba(15, 118, 110, 0.16), rgba(111, 90, 184, 0.12) 48%, rgba(232, 93, 80, 0.14));
+      border-bottom: 1px solid rgba(24, 33, 43, 0.08);
+      z-index: -1;
+    }
+
+    .header::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: min(1040px, calc(100% - 40px));
+      height: 1px;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, transparent, rgba(24, 33, 43, 0.22), transparent);
+    }
+
+    .title {
+      font-size: 3.1rem;
+      line-height: 1;
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: 0;
+      text-shadow: 0 12px 34px rgba(24, 33, 43, 0.16);
+    }
+
+    .subtitle {
+      max-width: 1100px;
+      margin: 0 auto 16px;
+      font-size: 2.12rem;
+      line-height: 1.12;
+      color: #263240;
+      white-space: nowrap;
+    }
+
+    .nowrap {
+      white-space: nowrap;
+    }
+
+    .venue {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin: 8px 0 34px;
+      padding: 9px 16px;
+      border: 1px solid rgba(24, 33, 43, 0.12);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.62);
+      box-shadow: 0 10px 28px rgba(24, 33, 43, 0.08);
+      color: #344054;
+      font-size: 1rem;
+      font-weight: 500;
+      text-shadow: none;
+      backdrop-filter: blur(14px);
+    }
+
+    .authors {
+      max-width: 980px;
+      margin-left: auto;
+      margin-right: auto;
+      gap: 10px 26px;
+    }
+
+    .author a {
+      color: #185c68;
+      font-weight: 500;
+      text-decoration: none;
+      background-image: linear-gradient(currentColor, currentColor);
+      background-position: 0 100%;
+      background-repeat: no-repeat;
+      background-size: 0 1px;
+      transition: color 0.18s ease, background-size 0.18s ease;
+    }
+
+    .author a:hover {
+      color: var(--coral);
+      background-size: 100% 1px;
+      text-decoration: none;
+    }
+
+    .affiliations {
+      color: #4c5867;
+    }
+
+    .links {
+      margin: 34px auto 34px;
+      gap: 14px;
+    }
+
+    .link-item {
+      min-width: 128px;
+      min-height: 76px;
+      padding: 14px 18px;
+      flex-direction: row;
+      justify-content: center;
+      gap: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow: 0 12px 26px rgba(24, 33, 43, 0.08);
+      backdrop-filter: blur(16px);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .link-item:hover {
+      transform: translateY(-4px);
+      border-color: rgba(15, 118, 110, 0.32);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .link-icon {
+      width: 38px;
+      height: 38px;
+      margin: 0;
+      border-radius: 8px;
+      background: #18212b;
+      color: #fff;
+      box-shadow: inset 0 -8px 18px rgba(255, 255, 255, 0.12);
+    }
+
+    .link-icon i {
+      color: #fff;
+      font-size: 1.25em;
+    }
+
+    .link-label {
+      color: #202b37;
+      font-size: 0.98rem;
+    }
+
+    .project-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin: 0 auto 28px;
+    }
+
+    .project-pill {
+      padding: 13px 14px;
+      border: 1px solid rgba(24, 33, 43, 0.1);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.66);
+      box-shadow: 0 12px 28px rgba(24, 33, 43, 0.07);
+      color: #334155;
+      font-size: 0.86rem;
+      font-weight: 600;
+      text-align: center;
+      backdrop-filter: blur(14px);
+    }
+
+    .hero-teaser {
+      padding-top: 0;
+    }
+
+    .teaser-shell,
+    .media-frame,
+    .pipeline,
+    .main-viewer-container {
+      position: relative;
+      border: 1px solid rgba(24, 33, 43, 0.12);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .teaser-shell::before,
+    .media-frame::before,
+    .pipeline::before,
+    .main-viewer-container::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      border-radius: inherit;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      z-index: 1;
+    }
+
+    .teaser img {
+      display: block;
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .teaser-plain-caption {
+      margin: 16px auto 20px;
+      max-width: 920px;
+      padding: 0 22px;
+      color: #344054;
+      font-size: 1.02rem;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .teaser-description {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.95fr);
+      gap: 28px;
+      align-items: center;
+      margin: 18px;
+      padding: 26px 28px;
+      text-align: left;
+      border: 1px solid rgba(24, 33, 43, 0.1);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(247, 250, 251, 0.78)),
+        repeating-linear-gradient(90deg, rgba(24, 33, 43, 0.035) 0 1px, transparent 1px 58px);
+      color: var(--ink);
+      box-shadow: 0 14px 34px rgba(24, 33, 43, 0.08);
+      backdrop-filter: blur(16px);
+    }
+
+    .teaser-description::before {
+      content: "";
+      position: absolute;
+      top: 18px;
+      bottom: 18px;
+      left: 0;
+      width: 4px;
+      border-radius: 0 8px 8px 0;
+      background: linear-gradient(180deg, #003f5c, #665191, #d45087, #ff7c43, #ffa600);
+    }
+
+    .teaser-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      color: #185c68;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .teaser-kicker::before {
+      content: "";
+      width: 28px;
+      height: 2px;
+      border-radius: 8px;
+      background: linear-gradient(90deg, #003f5c, #665191, #d45087, #ff7c43, #ffa600);
+    }
+
+    .teaser-copy {
+      max-width: 680px;
+      color: #334155;
+      font-size: clamp(1.02rem, 1.45vw, 1.24rem);
+      line-height: 1.65;
+    }
+
+    .teaser-highlights {
+      display: grid;
+      gap: 14px;
+    }
+
+    .teaser-highlight {
+      position: relative;
+      padding: 14px 16px 14px 18px;
+      border: 1px solid rgba(24, 33, 43, 0.08);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.66);
+      box-shadow: 0 10px 24px rgba(24, 33, 43, 0.06);
+    }
+
+    .teaser-highlight::before {
+      content: "";
+      position: absolute;
+      top: 14px;
+      left: 0;
+      width: 4px;
+      height: calc(100% - 28px);
+      min-height: 28px;
+      border-radius: 8px;
+      background: linear-gradient(180deg, #003f5c, #665191, #d45087, #ff7c43, #ffa600);
+    }
+
+    .teaser-highlight strong {
+      display: block;
+      margin-bottom: 2px;
+      color: #202b37;
+      font-size: 0.98rem;
+      font-weight: 700;
+    }
+
+    .teaser-highlight span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.45;
+    }
+
+    .section {
+      padding: 44px 0;
+    }
+
+    .section-title {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin: 20px auto 22px;
+      color: var(--ink);
+      font-size: clamp(1.45rem, 2.3vw, 2.05rem);
+      font-weight: 700;
+      letter-spacing: 0;
+      text-align: center;
+    }
+
+    .section-title::before {
+      content: none;
+      display: none;
+    }
+
+    .abstract,
+    .method-description {
+      border: 1px solid rgba(24, 33, 43, 0.1);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.76);
+      box-shadow: 0 16px 42px rgba(24, 33, 43, 0.08);
+      color: #344054;
+      backdrop-filter: blur(12px);
+    }
+
+    .abstract {
+      padding: 34px 40px;
+    }
+
+    .abstract::first-letter {
+      color: var(--teal);
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 0.9;
+      padding-right: 4px;
+    }
+
+    .method-description {
+      padding: 28px 32px;
+    }
+
+    .pipeline {
+      padding: 18px;
+    }
+
+    .pipeline img {
+      display: block;
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .video-wrapper {
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(24, 33, 43, 0.95), rgba(24, 58, 66, 0.92)),
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.06) 0 1px, transparent 1px 52px);
+      box-shadow: var(--shadow);
+      border: 8px solid rgba(255, 255, 255, 0.7);
+    }
+
+    .video-wrapper iframe,
+    .gallery-video {
+      display: block;
+    }
+
+    .main-viewer-container {
+      height: min(62vh, 600px);
+      min-height: 460px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(238, 244, 246, 0.72)),
+        repeating-linear-gradient(90deg, rgba(24, 33, 43, 0.05) 0 1px, transparent 1px 54px);
+    }
+
+    .instruction {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+
+    .section-note {
+      max-width: 920px;
+      margin: -6px 0 22px;
+      padding: 16px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-left: 4px solid var(--gold);
+      border-radius: 8px;
+      background: rgba(11, 17, 31, 0.58);
+      color: #dbe7f3;
+      font-size: 0.98rem;
+      line-height: 1.6;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+      backdrop-filter: blur(14px);
+    }
+
+    .comparison-table {
+      display: grid;
+      gap: 8px;
+    }
+
+    .comparison-header {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(118px, 1fr));
+      gap: 1px;
+      overflow: hidden;
+      border: 1px solid rgba(29, 39, 51, 0.1);
+      border-radius: 8px;
+      background: rgba(29, 39, 51, 0.08);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .comparison-header-cell {
+      padding: 10px 6px;
+      color: #344054;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-align: center;
+      text-transform: uppercase;
+      background:
+        linear-gradient(90deg, rgba(0, 63, 92, 0.06), rgba(102, 81, 145, 0.04), rgba(255, 166, 0, 0.06)),
+        #f6f8fb;
+    }
+
+    .comparison-row {
+      border: 1px solid rgba(29, 39, 51, 0.1);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(118px, 1fr));
+      gap: 1px;
+      background: rgba(29, 39, 51, 0.08);
+    }
+
+    .comparison-cell {
+      min-width: 0;
+      background: #fff;
+    }
+
+    .comparison-cell img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .comparison-scroll {
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+
+    .feature-gif {
+      max-width: 900px;
+      margin: 0 auto;
+      border: 1px solid rgba(29, 39, 51, 0.1);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .feature-gif img {
+      display: block;
+      width: 100%;
+      height: auto;
+      background: #fff;
+    }
+
+    .gallery-header {
+      display: block;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .gallery-header .section-title {
+      margin-bottom: 6px;
+    }
+
+    .gallery-header .instruction {
+      text-align: center;
+    }
+
+    .nav-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 42px;
+      border: 1px solid rgba(24, 33, 43, 0.14);
+      border-radius: 8px;
+      background: #18212b;
+      color: #fff;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 12px 26px rgba(24, 33, 43, 0.16);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    .nav-button:hover {
+      transform: translateY(-2px);
+      background: #243243;
+      box-shadow: 0 16px 34px rgba(24, 33, 43, 0.2);
+    }
+
+    .gallery-grid {
+      gap: 22px;
+    }
+
+    .gallery-item {
+      border: 1px solid rgba(24, 33, 43, 0.12);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: 0 14px 34px rgba(24, 33, 43, 0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      border-color: rgba(15, 118, 110, 0.3);
+      box-shadow: 0 20px 46px rgba(24, 33, 43, 0.15);
+    }
+
+    .gallery-item::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      border-radius: inherit;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.38), transparent 35%);
+    }
+
+    .gallery-viewer {
+      height: 300px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(239, 243, 245, 0.84)),
+        repeating-linear-gradient(90deg, rgba(24, 33, 43, 0.045) 0 1px, transparent 1px 42px);
+    }
+
+    .gallery-label {
+      padding: 12px;
+      color: #263240;
+      background: rgba(255, 255, 255, 0.82);
+      border-top: 1px solid rgba(24, 33, 43, 0.1);
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .gallery-loading,
+    .main-viewer-loading {
+      background: rgba(255, 255, 255, 0.82);
+      color: var(--muted);
+      backdrop-filter: blur(10px);
+    }
+
+    .spinner-small {
+      border-color: rgba(24, 33, 43, 0.12);
+      border-top-color: var(--coral);
+    }
+
+    .video-caption {
+      color: var(--muted);
+    }
+
+    .video-caption a {
+      color: #185c68;
+    }
+
+    .footer {
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.64);
+      border-top: 1px solid rgba(24, 33, 43, 0.1);
+    }
+
+    @media (max-width: 900px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        padding-top: 52px;
+      }
+
+      .title {
+        font-size: 2.45rem;
+      }
+
+      .subtitle {
+        font-size: 1.34rem;
+      }
+
+      .venue {
+        font-size: 0.9rem;
+      }
+
+      .container {
+        padding: 0 16px;
+      }
+
+      .links {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .project-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .link-item {
+        min-height: 64px;
+      }
+
+      .section {
+        padding: 32px 0;
+      }
+
+      .abstract,
+      .method-description {
+        padding: 22px;
+        text-align: left;
+      }
+
+      .comparison-grid {
+        grid-template-columns: repeat(7, minmax(112px, 1fr));
+      }
+
+      .comparison-header {
+        grid-template-columns: repeat(7, minmax(112px, 1fr));
+      }
+
+      .teaser-description {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        padding: 22px;
+        margin: 12px;
+      }
+
+      .gallery-header {
+        display: block;
+      }
+
+      .nav-button {
+        width: 100%;
+        margin-top: 12px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-viewer {
+        height: 340px;
+      }
+
+      .main-viewer-container {
+        min-height: 420px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .title {
+        font-size: 2rem;
+      }
+
+      .subtitle {
+        font-size: 0.98rem;
+      }
+
+      .project-strip {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Dark dawn theme */
+    :root {
+      --ink: #f7fbff;
+      --muted: #a9b7c7;
+      --line: rgba(255, 255, 255, 0.14);
+      --panel: rgba(12, 18, 33, 0.78);
+      --shadow: 0 26px 72px rgba(0, 0, 0, 0.36);
+      --shadow-soft: 0 18px 42px rgba(0, 0, 0, 0.28);
+    }
+
+    html {
+      background: #050814;
+    }
+
+    body {
+      position: relative;
+      min-height: 100vh;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 12%, rgba(255, 166, 0, 0.16) 0 1px, transparent 1.5px),
+        radial-gradient(circle at 18% 78%, rgba(255, 255, 255, 0.38) 0 1px, transparent 1.5px),
+        radial-gradient(circle at 28% 28%, rgba(255, 255, 255, 0.3) 0 1px, transparent 1.4px),
+        radial-gradient(circle at 42% 68%, rgba(255, 255, 255, 0.28) 0 1px, transparent 1.5px),
+        radial-gradient(circle at 58% 16%, rgba(255, 255, 255, 0.42) 0 1px, transparent 1.5px),
+        radial-gradient(circle at 72% 52%, rgba(255, 255, 255, 0.26) 0 1px, transparent 1.5px),
+        radial-gradient(circle at 86% 24%, rgba(255, 124, 67, 0.34) 0 1px, transparent 1.5px),
+        radial-gradient(circle at 93% 82%, rgba(255, 255, 255, 0.3) 0 1px, transparent 1.5px),
+        linear-gradient(180deg, #050814 0%, #0a1021 34%, #10182a 70%, #151827 100%);
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.74;
+      background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 0.92) 0 1px, transparent 1.6px),
+        radial-gradient(circle, rgba(255, 214, 145, 0.74) 0 1px, transparent 1.5px),
+        radial-gradient(circle, rgba(166, 210, 255, 0.64) 0 1px, transparent 1.4px);
+      background-position: 8px 18px, 46px 72px, 91px 38px;
+      background-size: 132px 132px, 176px 176px, 214px 214px;
+      animation: starDrift 42s linear infinite;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.44;
+      background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 0.9) 0 1px, transparent 1.8px),
+        radial-gradient(circle, rgba(255, 124, 67, 0.62) 0 1px, transparent 1.7px);
+      background-position: 64px 34px, 22px 116px;
+      background-size: 236px 236px, 312px 312px;
+      animation: starTwinkle 5.8s ease-in-out infinite alternate;
+    }
+
+    @keyframes starDrift {
+      to {
+        background-position: 140px 150px, 222px 248px, 305px 252px;
+      }
+    }
+
+    @keyframes starTwinkle {
+      from {
+        opacity: 0.24;
+      }
+
+      to {
+        opacity: 0.58;
+      }
+    }
+
+    .header,
+    .container,
+    .footer {
+      position: relative;
+      z-index: 1;
+    }
+
+    .header::before {
+      background:
+        linear-gradient(180deg, rgba(5, 8, 20, 0.36), rgba(5, 8, 20, 0.08)),
+        linear-gradient(105deg, rgba(0, 63, 92, 0.38), rgba(102, 81, 145, 0.24) 44%, rgba(249, 93, 106, 0.18) 70%, rgba(255, 166, 0, 0.2));
+      border-bottom-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .header::after {
+      background: linear-gradient(90deg, transparent, rgba(255, 166, 0, 0.52), rgba(255, 255, 255, 0.28), transparent);
+    }
+
+    .header {
+      isolation: isolate;
+    }
+
+    .header::before {
+      z-index: -2;
+    }
+
+    .title-panel {
+      position: relative;
+      width: min(980px, calc(100% - 32px));
+      margin: 0 auto 28px;
+      padding: 26px 30px 24px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(5, 9, 22, 0.78), rgba(9, 15, 30, 0.56)),
+        radial-gradient(circle at 18% 20%, rgba(255, 166, 0, 0.13), transparent 30%),
+        radial-gradient(circle at 82% 32%, rgba(212, 80, 135, 0.13), transparent 28%);
+      box-shadow:
+        0 24px 70px rgba(0, 0, 0, 0.32),
+        inset 0 1px 0 rgba(255, 255, 255, 0.16);
+      overflow: hidden;
+      backdrop-filter: blur(18px);
+    }
+
+    .title-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 10% 24%, rgba(255, 255, 255, 0.72) 0 1px, transparent 1.6px),
+        radial-gradient(circle at 88% 22%, rgba(255, 214, 145, 0.72) 0 1px, transparent 1.6px),
+        radial-gradient(circle at 76% 76%, rgba(166, 210, 255, 0.62) 0 1px, transparent 1.6px),
+        radial-gradient(circle at 24% 80%, rgba(255, 255, 255, 0.5) 0 1px, transparent 1.6px);
+      pointer-events: none;
+      opacity: 0.78;
+    }
+
+    .title-panel::after {
+      content: none;
+    }
+
+    .title,
+    .subtitle,
+    .venue {
+      position: relative;
+      z-index: 1;
+    }
+
+    .title::after {
+      content: none;
+    }
+
+    .title {
+      position: relative;
+      filter: none;
+      color: #f8fbff;
+      text-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.18),
+        0 8px 24px rgba(0, 0, 0, 0.58);
+    }
+
+    .subtitle {
+      position: relative;
+      color: #ffffff;
+      font-weight: 700;
+      text-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.16),
+        0 8px 24px rgba(0, 0, 0, 0.58);
+    }
+
+    .title span,
+    .subtitle span {
+      filter: brightness(1.35) saturate(1.18);
+    }
+
+    .title-panel .venue {
+      margin-bottom: 0;
+    }
+
+    .venue,
+    .link-item,
+    .project-pill,
+    .teaser-description,
+    .abstract,
+    .method-description,
+    .gallery-item {
+      border-color: rgba(255, 255, 255, 0.14);
+      background: rgba(11, 17, 31, 0.72);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(18px);
+    }
+
+    .venue {
+      border: none;
+      background: transparent;
+      box-shadow: none;
+      color: #d6e4f2;
+      backdrop-filter: none;
+    }
+
+    .author a {
+      color: #9ee8df;
+    }
+
+    .author a:hover {
+      color: #ffb05a;
+    }
+
+    .author sup,
+    .affiliations,
+    .equal-contrib,
+    .instruction,
+    .video-caption {
+      color: var(--muted);
+    }
+
+    .affiliations,
+    .affiliations sup,
+    .equal-contrib,
+    .equal-contrib sup {
+      color: #f3f8ff;
+      text-shadow: 0 6px 18px rgba(0, 0, 0, 0.48);
+    }
+
+    .link-item,
+    .link-label,
+    .project-pill {
+      color: #ecf5ff;
+    }
+
+    .link-icon {
+      background: linear-gradient(135deg, #0f766e, #6f5ab8 56%, #e85d50);
+      box-shadow: 0 10px 24px rgba(232, 93, 80, 0.18);
+    }
+
+    .teaser-shell,
+    .media-frame,
+    .pipeline,
+    .main-viewer-container {
+      border-color: rgba(255, 255, 255, 0.16);
+      background: rgba(8, 13, 25, 0.74);
+      box-shadow: var(--shadow);
+    }
+
+    .teaser-shell::before,
+    .media-frame::before,
+    .pipeline::before,
+    .main-viewer-container::before {
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    .teaser-description {
+      background:
+        linear-gradient(135deg, rgba(11, 17, 31, 0.86), rgba(16, 29, 47, 0.76)),
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.045) 0 1px, transparent 1px 58px);
+      color: #f5f9ff;
+    }
+
+    .teaser-kicker {
+      color: #ffcf7a;
+    }
+
+    .teaser-copy,
+    .abstract,
+    .method-description {
+      color: #d5dfeb;
+    }
+
+    .method-description,
+    .method-description p {
+      color: #f7fbff !important;
+    }
+
+    .teaser-highlight {
+      border-color: rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.055);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+
+    .teaser-highlight strong {
+      color: #f7fbff;
+    }
+
+    .teaser-highlight span {
+      color: #aebccd;
+    }
+
+    .section-title {
+      color: #f6fbff;
+      text-shadow: 0 12px 30px rgba(0, 0, 0, 0.24);
+    }
+
+    .abstract::first-letter {
+      color: #ffcf7a;
+    }
+
+    .pipeline {
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .video-wrapper {
+      border-color: rgba(255, 255, 255, 0.12);
+      background:
+        linear-gradient(135deg, rgba(6, 10, 22, 0.98), rgba(18, 38, 54, 0.94)),
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.06) 0 1px, transparent 1px 52px);
+    }
+
+    .main-viewer-container,
+    .gallery-viewer {
+      background:
+        linear-gradient(180deg, rgba(12, 18, 31, 0.54), rgba(24, 34, 48, 0.74)),
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.045) 0 1px, transparent 1px 54px);
+    }
+
+    .gallery-label {
+      color: #edf6ff;
+      background: rgba(10, 15, 28, 0.78);
+      border-top-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .gallery-loading,
+    .main-viewer-loading {
+      background: rgba(5, 8, 20, 0.72);
+      color: #d7e5f2;
+    }
+
+    .nav-button {
+      border-color: rgba(255, 255, 255, 0.18);
+      background: linear-gradient(135deg, #0f766e, #6f5ab8 56%, #e85d50);
+      color: #fff;
+    }
+
+    .nav-button:hover {
+      background: linear-gradient(135deg, #129084, #7a66c5 56%, #f06456);
+    }
+
+    .video-caption a,
+    .footer a {
+      color: #9ee8df;
+    }
+
+    .footer {
+      color: var(--muted);
+      background: rgba(5, 8, 20, 0.68);
+      border-top-color: rgba(255, 255, 255, 0.12);
+    }
+
+    /* Academic light theme */
+    :root {
+      --ink: #1d2733;
+      --muted: #667085;
+      --line: rgba(29, 39, 51, 0.12);
+      --panel: rgba(255, 255, 255, 0.9);
+      --shadow: 0 18px 44px rgba(20, 32, 45, 0.12);
+      --shadow-soft: 0 12px 28px rgba(20, 32, 45, 0.1);
+      --lui-blue: #003f5c;
+      --lui-indigo: #2f4b7c;
+      --lui-violet: #665191;
+      --lui-magenta: #a05195;
+      --lui-rose: #d45087;
+      --lui-coral: #f95d6a;
+      --lui-orange: #ff7c43;
+      --lui-gold: #ffa600;
+      --lui-gradient: linear-gradient(135deg, var(--lui-blue), var(--lui-indigo), var(--lui-violet), var(--lui-magenta), var(--lui-rose), var(--lui-coral), var(--lui-orange), var(--lui-gold));
+    }
+
+    html {
+      background: #f5f7fb;
+    }
+
+    body {
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, #f2f6fb 0%, #ffffff 34%, #f7f8fb 100%),
+        repeating-linear-gradient(90deg, rgba(29, 39, 51, 0.028) 0 1px, transparent 1px 104px);
+      background-attachment: scroll;
+    }
+
+    body::before,
+    body::after {
+      display: none;
+    }
+
+    .header::before {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.7)),
+        linear-gradient(105deg, rgba(0, 63, 92, 0.12), rgba(102, 81, 145, 0.09) 44%, rgba(212, 80, 135, 0.08) 68%, rgba(255, 166, 0, 0.12));
+      border-bottom-color: rgba(29, 39, 51, 0.1);
+    }
+
+    .header::after {
+      background: linear-gradient(90deg, transparent, var(--lui-blue), var(--lui-rose), var(--lui-gold), transparent);
+      opacity: 0.42;
+    }
+
+    .title-panel {
+      border-color: rgba(29, 39, 51, 0.12);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.86)),
+        radial-gradient(circle at 16% 20%, rgba(255, 166, 0, 0.14), transparent 28%),
+        radial-gradient(circle at 84% 34%, rgba(160, 81, 149, 0.1), transparent 30%),
+        radial-gradient(circle at 52% 120%, rgba(0, 63, 92, 0.12), transparent 34%);
+      box-shadow:
+        0 18px 45px rgba(20, 32, 45, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(14px);
+    }
+
+    .title-panel::before {
+      opacity: 0.18;
+    }
+
+    .title-panel::after {
+      content: none;
+    }
+
+    .title,
+    .subtitle {
+      text-shadow: none;
+    }
+
+    .title {
+      color: #101828;
+    }
+
+    .subtitle {
+      color: #1f2937;
+      font-weight: 700;
+    }
+
+    .title span,
+    .subtitle span {
+      filter: brightness(1.08) saturate(1.05);
+    }
+
+    .venue {
+      color: #475467;
+      font-size: 1.18rem;
+      font-weight: 700;
+    }
+
+    .author a {
+      color: var(--lui-blue);
+    }
+
+    .author a:hover {
+      color: var(--lui-rose);
+    }
+
+    .author sup,
+    .affiliations,
+    .affiliations sup,
+    .equal-contrib,
+    .equal-contrib sup,
+    .instruction,
+    .video-caption {
+      color: #667085;
+      text-shadow: none;
+    }
+
+    .link-item,
+    .project-pill,
+    .teaser-description,
+    .abstract,
+    .method-description,
+    .gallery-item {
+      position: relative;
+      border-color: rgba(29, 39, 51, 0.1);
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(12px);
+    }
+
+    .link-item,
+    .project-pill,
+    .gallery-item {
+      overflow: hidden;
+    }
+
+    .link-label,
+    .project-pill,
+    .teaser-highlight strong,
+    .gallery-label {
+      color: #1f2937;
+    }
+
+    .link-icon {
+      background: #1f2937;
+      box-shadow: inset 0 -8px 18px rgba(255, 255, 255, 0.1);
+    }
+
+    .teaser-shell,
+    .media-frame,
+    .pipeline,
+    .main-viewer-container {
+      border-color: rgba(29, 39, 51, 0.12);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .teaser-description {
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(247, 250, 252, 0.86)),
+        linear-gradient(105deg, rgba(0, 63, 92, 0.055), rgba(102, 81, 145, 0.04) 46%, rgba(255, 166, 0, 0.055)),
+        repeating-linear-gradient(90deg, rgba(29, 39, 51, 0.028) 0 1px, transparent 1px 58px);
+      color: #1f2937;
+    }
+
+    .teaser-kicker {
+      color: var(--lui-blue);
+    }
+
+    .teaser-copy,
+    .abstract,
+    .method-description,
+    .method-description p,
+    .section-note {
+      color: #344054 !important;
+    }
+
+    .teaser-highlight {
+      border-color: rgba(29, 39, 51, 0.08);
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow: 0 10px 24px rgba(20, 32, 45, 0.06);
+    }
+
+    .teaser-highlight span {
+      color: #667085;
+    }
+
+    .section-title {
+      color: #1d2733;
+      text-shadow: none;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .section-title::before {
+      content: none;
+      display: none;
+    }
+
+    .pipeline {
+      background: rgba(255, 255, 255, 0.92);
+    }
+
+    .video-wrapper {
+      border-color: rgba(255, 255, 255, 0.82);
+      background: #111827;
+    }
+
+    .main-viewer-container,
+    .gallery-viewer {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(241, 245, 249, 0.84)),
+        repeating-linear-gradient(90deg, rgba(29, 39, 51, 0.04) 0 1px, transparent 1px 54px);
+    }
+
+    .gallery-label {
+      background: rgba(255, 255, 255, 0.88);
+      border-top-color: rgba(29, 39, 51, 0.1);
+    }
+
+    #gallery-grid .gallery-loading {
+      bottom: 0;
+    }
+
+    .gallery-loading,
+    .main-viewer-loading {
+      background: rgba(255, 255, 255, 0.84);
+      color: #667085;
+    }
+
+    .nav-button {
+      border-color: rgba(160, 81, 149, 0.2);
+      background: #1f2937;
+      color: #ffffff;
+    }
+
+    .nav-button:hover {
+      background: #344054;
+    }
+
+    .section-note {
+      max-width: 920px;
+      margin: -4px auto 22px;
+      padding: 0;
+      border: none;
+      background: transparent;
+      box-shadow: none;
+      color: #475467 !important;
+      text-align: center;
+      backdrop-filter: none;
+    }
+
+    .video-caption a,
+    .footer a {
+      color: var(--lui-blue);
+    }
+
+    .footer {
+      color: #667085;
+      background: rgba(255, 255, 255, 0.72);
+      border-top-color: rgba(29, 39, 51, 0.1);
+    }
   </style>
 </head>
 
@@ -416,16 +1763,18 @@
 
   <!-- Header -->
   <header class="header">
-    <h1 class="title">
-      <span class="letter-l">L</span><span class="letter-u">U</span><span class="letter-i">I</span><span
-        class="letter-v">V</span><span class="letter-i2">I</span><span class="letter-t">T</span><span
-        class="letter-o">O</span><span class="letter-n">N</span>
-    </h1>
-    <p class="subtitle"><span class="letter-l">L</span>earned <span class="letter-u">U</span>niversal <span
-        class="letter-i">I</span>nteroperable <span class="letter-v">V</span><span
-        class="letter-i2">I</span>rtual <span class="letter-t">T</span>ry-<span class="letter-o">O</span><span
-        class="letter-n">N</span></p>
-    <p class="venue">ACM Transactions on Graphics (SIGGRAPH 2026)</p>
+    <div class="title-panel">
+      <h1 class="title">
+        <span class="letter-l">L</span><span class="letter-u">U</span><span class="letter-i">I</span><span
+          class="letter-v">V</span><span class="letter-i2">I</span><span class="letter-t">T</span><span
+          class="letter-o">O</span><span class="letter-n">N</span>
+      </h1>
+      <p class="subtitle"><span class="letter-l">L</span>earned <span class="letter-u">U</span>niversal <span
+          class="letter-i">I</span>nteroperable <span class="letter-v">V</span><span
+          class="letter-i2">I</span>rtual <span class="nowrap"><span class="letter-t">T</span>ry-<span
+            class="letter-o">O</span><span class="letter-n">N</span></span></p>
+      <p class="venue">ACM Transactions on Graphics (SIGGRAPH 2026)</p>
+    </div>
 
     <div class="authors">
       <div class="author"><a href="mailto:cong.cao@mbzuai.ac.ae">Cong Cao</a><sup>1</sup></div>
@@ -439,8 +1788,8 @@
     </div>
 
     <div class="affiliations">
-      <span><sup>1</sup>Mohamed Bin Zayed University of Artificial Intelligence</span>
-      <span><sup>2</sup>The University of Tokyo</span>
+      <span><sup>1</sup>MBZUAI</span>
+      <span><sup>2</sup>UTokyo</span>
       <span><sup>3</sup>SUSTech</span>
       <span><sup>4</sup>Pinscreen</span>
     </div>
@@ -466,10 +1815,30 @@
       </a>
     </div>
 
+    <div class="project-strip" aria-label="Project highlights">
+      <div class="project-pill">No shared rig required</div>
+      <div class="project-pill">Multi-layer garment transfer</div>
+      <div class="project-pill">Stylized character support</div>
+      <div class="project-pill">Simulation-guided draping</div>
+    </div>
+
+    <section class="section hero-teaser">
+      <div class="teaser teaser-shell">
+        <a href="assets/images/teaser.png" target="_blank">
+          <img src="assets/images/teaser.png" alt="LUIVITON virtual try-on teaser results">
+        </a>
+        <p class="teaser-plain-caption">
+          LUIVITON transfers complex real-world garments onto diverse humanoid characters through learned
+          correspondences, SMPL-based registration, and simulation-guided fitting. The system supports varied garment
+          topology and stylized target bodies without requiring shared rigs or manual correspondences.
+        </p>
+      </div>
+    </section>
+
     <!-- Video (right after teaser like NeRF) -->
     <section class="section">
-      <h2 class="section-title">Overview Video</h2>
-      <div class="video-wrapper">
+      <h2 class="section-title" data-index="01">Overview Video</h2>
+      <div class="video-wrapper media-frame">
         <iframe src="https://www.youtube.com/embed/ctG9DeKy6jc" allowfullscreen></iframe>
       </div>
       <p class="video-caption"><a href="https://www.youtube.com/watch?v=ctG9DeKy6jc" target="_blank">LUIVITON Project
@@ -478,7 +1847,7 @@
 
     <!-- Abstract -->
     <section class="section">
-      <h2 class="section-title">Abstract</h2>
+      <h2 class="section-title" data-index="02">Abstract</h2>
       <div class="abstract">
         To enable large-scale reuse of real-world 3D assets-where garments and characters rarely share skeletons, templates, or dense correspondences-we present a fully automated virtual try-on system that dresses complex, multi-layer garments onto diverse, arbitrarily posed humanoids. Our key idea is to use SMPL as an intermediate proxy and decompose clothing-to-body transfer into two correspondence tasks with distinct challenges: (1) clothing-to-SMPL (partial-to-complete alignment) and (2) body-to-SMPL (large pose/shape variation and stylization). We address clothing-to-SMPL using a geometry-driven correspondence model, and introduce a diffusion-based body-to-SMPL correspondence approach that leverages multi-view consistent appearance features together with a pretrained 2D foundation model. Using these correspondences, we register SMPL/SMPL+D (Displacement) to the garment and target body and then perform simulator-driven fitting by transferring the garment along a smooth SMPL-to-SMPL+D transition, producing physically plausible draping on the target. Our system handles complex garment topology (including non-manifold meshes) and generalizes to a wide range of humanoid characters (e.g., humans, robots, cartoons, and creatures) while remaining computationally practical. Upon draping, our system also supports fast customization of clothing size. We show that our system
 can produce high-quality 3D clothing fittings without any human labor,
@@ -488,7 +1857,7 @@ even when 2D clothing sewing patterns are not available.
 
     <!-- Pipeline -->
     <section class="section">
-      <h2 class="section-title">Method Overview</h2>
+      <h2 class="section-title" data-index="03">Method Overview</h2>
       <div class="pipeline">
         <a href="assets/images/pipeline.png" target="_blank">
           <img src="assets/images/pipeline.png" alt="System Pipeline">
@@ -528,8 +1897,8 @@ even when 2D clothing sewing patterns are not available.
 
     <!-- Main 3D Demo -->
     <section class="section">
-      <h2 class="section-title">Interactive 3D Demo</h2>
-      <p style="color: #666; font-size: 14px; margin-bottom: 15px;">Drag to rotate • Scroll to zoom</p>
+      <h2 class="section-title" data-index="04">3D Viewer of our results</h2>
+      <p class="instruction">Drag to rotate • Scroll to zoom</p>
       <div class="main-viewer-container" id="main-viewer">
         <div class="main-viewer-loading" id="main-loading">
           <div class="spinner-small"></div>
@@ -538,14 +1907,69 @@ even when 2D clothing sewing patterns are not available.
       </div>
     </section>
 
+    <!-- Comparisons with Expert -->
+    <section class="section">
+      <h2 class="section-title">Comparisons with Expert</h2>
+      <p class="section-note">
+        We compare LUIVITON outputs with expert artist results on three representative characters. Each row shows the
+        target body, two garment inputs, our fitted results, and the corresponding artist-created references.
+      </p>
+      <div class="comparison-scroll">
+        <div class="comparison-table">
+          <div class="comparison-row">
+            <div class="comparison-grid">
+              <div class="comparison-cell"><img src="assets/gifs/experts_results_gif/body_girl.gif" alt="Girl body"></div>
+              <div class="comparison-cell"><img src="assets/gifs/experts_results_gif/input_girl_1.gif" alt="Girl input garment 1"></div>
+              <div class="comparison-cell"><img src="assets/gifs/experts_results_gif/ours_girl_1.gif" alt="LUIVITON result for girl garment 1"></div>
+              <div class="comparison-cell"><img src="assets/gifs/experts_results_gif/artist_girl_1.gif" alt="Expert result for girl garment 1"></div>
+              <div class="comparison-cell"><img src="assets/gifs/experts_results_gif/input_girl_2.gif" alt="Girl input garment 2"></div>
+              <div class="comparison-cell"><img src="assets/gifs/experts_results_gif/ours_girl_2.gif" alt="LUIVITON result for girl garment 2"></div>
+              <div class="comparison-cell"><img src="assets/gifs/experts_results_gif/artist_girl_2.gif" alt="Expert result for girl garment 2"></div>
+            </div>
+          </div>
+          <div class="comparison-row">
+            <div class="comparison-grid">
+              <div class="comparison-cell"><img src="assets/gifs/experts_results_gif/body_man.gif" alt="Man body"></div>
+              <div class="comparison-cell"><img src="assets/gifs/experts_results_gif/input_man_1.gif" alt="Man input garment 1"></div>
+              <div class="comparison-cell"><img src="assets/gifs/experts_results_gif/ours_Man_1.gif" alt="LUIVITON result for man garment 1"></div>
+              <div class="comparison-cell"><img src="assets/gifs/experts_results_gif/artist_man_1.gif" alt="Expert result for man garment 1"></div>
+              <div class="comparison-cell"><img src="assets/gifs/experts_results_gif/input_man_2.gif" alt="Man input garment 2"></div>
+              <div class="comparison-cell"><img src="assets/gifs/experts_results_gif/ours_Man_2.gif" alt="LUIVITON result for man garment 2"></div>
+              <div class="comparison-cell"><img src="assets/gifs/experts_results_gif/artist_man_2.gif" alt="Expert result for man garment 2"></div>
+            </div>
+          </div>
+          <div class="comparison-row">
+            <div class="comparison-grid">
+              <div class="comparison-cell"><img src="assets/gifs/experts_results_gif/body_MUTANT.gif" alt="MUTANT body"></div>
+              <div class="comparison-cell"><img src="assets/gifs/experts_results_gif/input_MUTANT_1.gif" alt="MUTANT input garment 1"></div>
+              <div class="comparison-cell"><img src="assets/gifs/experts_results_gif/ours_MUTANT_1.gif" alt="LUIVITON result for MUTANT garment 1"></div>
+              <div class="comparison-cell"><img src="assets/gifs/experts_results_gif/artist_MUTANT_1.gif" alt="Expert result for MUTANT garment 1"></div>
+              <div class="comparison-cell"><img src="assets/gifs/experts_results_gif/input_MUTANT_2.gif" alt="MUTANT input garment 2"></div>
+              <div class="comparison-cell"><img src="assets/gifs/experts_results_gif/ours_MUTANT_2.gif" alt="LUIVITON result for MUTANT garment 2"></div>
+              <div class="comparison-cell"><img src="assets/gifs/experts_results_gif/artist_MUTANT_2.gif" alt="Expert result for MUTANT garment 2"></div>
+            </div>
+          </div>
+        </div>
+        <div class="comparison-header">
+          <div class="comparison-header-cell">body</div>
+          <div class="comparison-header-cell">input garment</div>
+          <div class="comparison-header-cell">ours</div>
+          <div class="comparison-header-cell">expert</div>
+          <div class="comparison-header-cell">input garment</div>
+          <div class="comparison-header-cell">ours</div>
+          <div class="comparison-header-cell">expert</div>
+        </div>
+      </div>
+    </section>
+
     <!-- Results Gallery - Small 3D Viewers Grid -->
     <section class="section">
-      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+      <div class="gallery-header">
         <div>
-          <h2 class="section-title" style="margin-bottom: 5px;">Results Gallery</h2>
-          <p style="color: #666; font-size: 14px;">Drag to rotate • Scroll to zoom</p>
+          <h2 class="section-title" data-index="05">Results Gallery</h2>
+          <p class="instruction">Drag to rotate • Scroll to zoom</p>
         </div>
-        <button id="toggle-textures-btn" class="nav-button" style="font-size: 14px; padding: 8px 16px;">
+        <button id="toggle-textures-btn" class="nav-button">
           <i class="fas fa-toggle-on"></i> Toggle Body Textures
         </button>
       </div>
@@ -554,9 +1978,24 @@ even when 2D clothing sewing patterns are not available.
       </div>
     </section>
 
+    <!-- Size Adjustment -->
+    <section class="section">
+      <h2 class="section-title">Size Adjustment</h2>
+      <p class="section-note">
+        Users can modify the garment scale and view different fitting styles, such as tighter or looser clothing.
+      </p>
+      <div class="feature-gif">
+        <img src="assets/gifs/size_adjust.gif" alt="Garment size adjustment showing tighter and looser fitting styles">
+      </div>
+    </section>
+
     <!-- Animation Gallery -->
     <section class="section">
-      <h2 class="section-title">Animation Gallery</h2>
+      <h2 class="section-title" data-index="06">Animation Gallery</h2>
+      <p class="section-note">
+        Our system produces a fitted garment mesh in the initial pose of the target character.
+        Once the garment is fitted to the initial posed character, it can serve as a clean starting point for downstream animation or simulation.
+      </p>
       <div class="gallery-grid">
         <div class="gallery-item">
           <video autoplay loop muted playsinline class="gallery-video"
@@ -604,6 +2043,18 @@ even when 2D clothing sewing patterns are not available.
     </section>
 
     <!-- Citation -->
+    <section class="section">
+      <h2 class="section-title">Citation</h2>
+      <pre class="citation-box">@misc{cao2026luivitonlearneduniversalinteroperable,
+      title={LUIVITON: Learned Universal Interoperable VIrtual Try-ON}, 
+      author={Cong Cao and Xianhang Cheng and Jingyuan Liu and Yujian Zheng and Zhenhui Lin and Ren Li and Meriem Chkir and Hao Li},
+      year={2026},
+      eprint={2509.05030},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2509.05030}, 
+}</pre>
+    </section>
   </div>
 
   <!-- Footer -->
@@ -627,6 +2078,87 @@ even when 2D clothing sewing patterns are not available.
 
     const viewers = [];
 
+    function configureRenderer(renderer, container, exposure = 1.0) {
+      renderer.setClearColor(0xffffff, 1);
+      renderer.setSize(container.clientWidth, container.clientHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.outputColorSpace = THREE.SRGBColorSpace;
+      renderer.toneMapping = THREE.LinearToneMapping;
+      renderer.toneMappingExposure = exposure;
+    }
+
+    function addStudioLights(scene, compact = false) {
+      scene.add(new THREE.AmbientLight(0xffffff, compact ? 0.82 : 0.9));
+      scene.add(new THREE.HemisphereLight(0xffffff, 0xe8edf5, compact ? 0.95 : 1.08));
+
+      const keyLight = new THREE.DirectionalLight(0xffffff, compact ? 1.55 : 1.7);
+      keyLight.position.set(4, 7, 5);
+      scene.add(keyLight);
+
+      const fillLight = new THREE.DirectionalLight(0xffffff, compact ? 0.62 : 0.72);
+      fillLight.position.set(-5, 3, -4);
+      scene.add(fillLight);
+    }
+
+    function isLikelyBodyMaterial(materialName = '') {
+      return /body|skin|face|head|eye|hair|teeth|tongue/i.test(materialName);
+    }
+
+    function tuneMaterialForPresentation(material, isGarment) {
+      if (!material) return material;
+      if (Array.isArray(material)) {
+        return material.map(m => tuneMaterialForPresentation(m, isGarment));
+      }
+
+      const tuned = material.clone();
+
+      if (tuned.map) {
+        tuned.map.colorSpace = THREE.SRGBColorSpace;
+      }
+
+      if (tuned.specular) {
+        tuned.specular.set(isGarment ? 0x111111 : 0x222222);
+      }
+
+      if ('shininess' in tuned) {
+        tuned.shininess = isGarment ? 28 : 18;
+      }
+
+      if ('roughness' in tuned) {
+        tuned.roughness = isGarment ? 0.78 : 0.66;
+      }
+
+      if ('metalness' in tuned) {
+        tuned.metalness = 0;
+      }
+
+      if (isGarment && tuned.color && !tuned.map) {
+        const hsl = {};
+        tuned.color.getHSL(hsl);
+        const isRedHue = hsl.h < 0.06 || hsl.h > 0.94;
+        const maxSaturation = isRedHue ? 0.72 : 0.46;
+        const minLightness = isRedHue ? 0.34 : 0.42;
+        const lightnessBoost = isRedHue ? 0.08 : 0.12;
+        tuned.color.setHSL(
+          hsl.h,
+          Math.min(hsl.s, maxSaturation),
+          Math.max(minLightness, Math.min(hsl.l + lightnessBoost, 0.7))
+        );
+      }
+
+      tuned.side = THREE.DoubleSide;
+      tuned.needsUpdate = true;
+      return tuned;
+    }
+
+    function applyPresentationMaterials(obj, isGarmentResolver) {
+      obj.traverse(c => {
+        if (!c.isMesh) return;
+        const isGarment = isGarmentResolver(c.material);
+        c.material = tuneMaterialForPresentation(c.material, isGarment);
+      });
+    }
+
     // ========== MAIN VIEWER (FINAL.obj) ==========
     (function createMainViewer() {
       const container = document.getElementById('main-viewer');
@@ -636,13 +2168,8 @@ even when 2D clothing sewing patterns are not available.
       const camera = new THREE.PerspectiveCamera(50, container.clientWidth / container.clientHeight, 0.01, 10000);
       camera.position.set(3, 2, 3);
 
-      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-      renderer.setClearColor(0x000000, 0);
-      renderer.setSize(container.clientWidth, container.clientHeight);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-      renderer.outputColorSpace = THREE.SRGBColorSpace;
-      renderer.toneMapping = THREE.ACESFilmicToneMapping;
-      renderer.toneMappingExposure = 1.5;
+      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+      configureRenderer(renderer, container, 1.18);
       container.appendChild(renderer.domElement);
 
       const controls = new OrbitControls(camera, renderer.domElement);
@@ -651,15 +2178,7 @@ even when 2D clothing sewing patterns are not available.
       controls.autoRotate = true;
       controls.autoRotateSpeed = 0.8;
 
-      // Lighting
-      scene.add(new THREE.AmbientLight(0xffffff, 1.2));
-      scene.add(new THREE.HemisphereLight(0xffffff, 0x888888, 1.0));
-      const keyLight = new THREE.DirectionalLight(0xffffff, 2.0);
-      keyLight.position.set(5, 10, 5);
-      scene.add(keyLight);
-      const fillLight = new THREE.DirectionalLight(0xffffff, 1.2);
-      fillLight.position.set(-5, 5, -5);
-      scene.add(fillLight);
+      addStudioLights(scene, false);
 
       viewers.push({ scene, camera, renderer, controls, container });
 
@@ -674,6 +2193,7 @@ even when 2D clothing sewing patterns are not available.
         const objLoader = new OBJLoader();
         objLoader.setMaterials(materials);
         objLoader.load(basePath + 'FINAL.obj', obj => {
+          applyPresentationMaterials(obj, material => !isLikelyBodyMaterial(material?.name));
           scene.add(obj);
           // Center model
           const box = new THREE.Box3().setFromObject(obj);
@@ -691,7 +2211,7 @@ even when 2D clothing sewing patterns are not available.
       }, undefined, () => {
         const objLoader = new OBJLoader();
         objLoader.load(basePath + 'FINAL.obj', obj => {
-          obj.traverse(c => { if (c.isMesh) c.material = new THREE.MeshStandardMaterial({ color: 0x888888 }); });
+          obj.traverse(c => { if (c.isMesh) c.material = new THREE.MeshStandardMaterial({ color: 0xb8c0cc, roughness: 0.78, metalness: 0 }); });
           scene.add(obj);
           loadingEl.classList.add('hidden');
         });
@@ -739,13 +2259,8 @@ even when 2D clothing sewing patterns are not available.
             loadingDiv.className = 'gallery-loading';
             loadingDiv.innerHTML = '<div class="spinner-small"></div>';
 
-            const labelDiv = document.createElement('div');
-            labelDiv.className = 'gallery-label';
-            labelDiv.textContent = itemConfig.label;
-
             item.appendChild(viewerDiv);
             item.appendChild(loadingDiv);
-            item.appendChild(labelDiv);
             galleryGrid.appendChild(item);
 
             // Three.js Setup
@@ -753,12 +2268,8 @@ even when 2D clothing sewing patterns are not available.
             const camera = new THREE.PerspectiveCamera(45, viewerDiv.clientWidth / viewerDiv.clientHeight, 0.01, 1000);
             camera.position.set(0, 1, 2.5); // Initial position
 
-            const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-            renderer.setSize(viewerDiv.clientWidth, viewerDiv.clientHeight);
-            renderer.setClearColor(0x000000, 0);
-            renderer.outputColorSpace = THREE.SRGBColorSpace;
-            renderer.toneMapping = THREE.ACESFilmicToneMapping;
-            renderer.toneMappingExposure = 1.2;
+            const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+            configureRenderer(renderer, viewerDiv, 1.22);
             viewerDiv.appendChild(renderer.domElement);
 
             const controls = new OrbitControls(camera, renderer.domElement);
@@ -766,12 +2277,7 @@ even when 2D clothing sewing patterns are not available.
             controls.autoRotate = true;
             controls.autoRotateSpeed = 2.0;
 
-            // Lighting
-            scene.add(new THREE.AmbientLight(0xffffff, 0.4));
-            scene.add(new THREE.HemisphereLight(0xffffff, 0x444444, 0.6));
-            const dirLight = new THREE.DirectionalLight(0xffffff, 1.2);
-            dirLight.position.set(2, 5, 5);
-            scene.add(dirLight);
+            addStudioLights(scene, true);
 
             viewers.push({ scene, camera, renderer, controls, container: viewerDiv });
 
@@ -795,17 +2301,19 @@ even when 2D clothing sewing patterns are not available.
                 }
 
                 objLoader.load(folderPath + modelDef.obj, obj => {
-                  // Apply default material if no MTL
-                  if (!materials) {
-                    obj.traverse(c => {
-                      if (c.isMesh) c.material = new THREE.MeshStandardMaterial({ color: 0xcccccc });
-                    });
-                  }
-
-                  // Store reference if this is a character body
                   const fileBase = modelDef.obj.replace('.obj', '');
                   const isBody = modelDef.obj.includes(itemConfig.folder) || itemConfig.folder.includes(fileBase);
 
+                  // Apply default material if no MTL
+                  if (!materials) {
+                    obj.traverse(c => {
+                      if (c.isMesh) c.material = new THREE.MeshStandardMaterial({ color: isBody ? 0xd6d8dc : 0xb8c0cc, roughness: 0.78, metalness: 0 });
+                    });
+                  }
+
+                  applyPresentationMaterials(obj, () => !isBody);
+
+                  // Store reference if this is a character body
                   if (isBody) {
                     obj.traverse(c => {
                       if (c.isMesh) {
