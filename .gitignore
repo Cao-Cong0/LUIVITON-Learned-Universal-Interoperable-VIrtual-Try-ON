@@ -1,6 +1,5 @@
 outputs/
 results/
-test_data/
 data/
 checkpoints/
 .pytest_cache/
@@ -13,6 +12,11 @@ checkpoints/
 !env/*.yml
 !examples/
 !examples/*.obj
+!test_data/
+!test_data/body/
+!test_data/body/*.obj
+!test_data/garment/
+!test_data/garment/*.obj
 !assets/
 !assets/source_smpl/
 assets/source_smpl/*

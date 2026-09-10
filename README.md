@@ -52,6 +52,7 @@ pip install -e .
 - `scripts/` and `configs/`: setup, pipeline commands, and configuration.
 - `integrations/` and `third_party/`: upstream patches and dependencies.
 - `models/` and `assets/`: checkpoints, templates, and source features.
+- `test_data/`: sample body and clothing meshes, without textures or material files.
 - `outputs/`: generated results.
 
 ## Assets
@@ -79,7 +80,7 @@ Bundled assets:
 Provide a body OBJ and a clothing OBJ. The clothing must be in a rest pose between A-pose and T-pose:
 
 ```bash
-bash scripts/run_pipeline.sh /path/to/body.obj /path/to/cloth.obj
+bash scripts/run_pipeline.sh test_data/body/Mannequin_1.obj test_data/garment/DRESS_P.obj
 ```
 
 The runner uses `Luiviton` for correspondence and registration, then `ccraft` for transfer.
