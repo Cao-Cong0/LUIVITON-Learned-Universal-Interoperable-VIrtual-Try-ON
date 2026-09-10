@@ -1,0 +1,38 @@
+# Luiviton body feature extraction settings. The wrapper supplies --mesh and
+# --output, so this file contains no machine-specific paths.
+prefix: scan
+use_mesh_name: true
+timeformat: ''
+
+prompt: "A photorealistic human with T-shirt and shorts."
+negative_prompt: "oversmoothed, blurry, depth of field, out of focus, low quality, bloom, glowing effect"
+steps: 25
+guidance_scale: 15.5
+seed: 42
+
+cond_type: depth
+guess_mode: false
+conditioning_scale: 0.7
+conditioning_scale_end: 0.9
+control_guidance_start: 0.0
+control_guidance_end: 0.99
+guidance_rescale: 0.0
+
+latent_view_size: 64
+latent_tex_size: 512
+rgb_view_size: 480
+rgb_tex_size: 1024
+camera_azims: [0, 20, 40, 60, 80, 100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 340]
+no_top_cameras: false
+mvd_end: 0.8
+mvd_exp_start: 0.0
+mvd_exp_end: 6.0
+ref_attention_end: 0.2
+shuffle_bg_change: 0.4
+shuffle_bg_end: 0.8
+mesh_scale: 0.9
+keep_mesh_uv: false
+
+log_interval: 10
+view_fast_preview: false
+tex_fast_preview: false

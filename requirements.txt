@@ -1,0 +1,19 @@
+# Install PyTorch, PyTorch3D, and torch-geometric from compatible CUDA wheels
+# or conda channels before installing this file. See README.md.
+numpy>=1.23,<2
+bottleneck>=1.3.6
+scipy>=1.7
+scikit-learn>=1.2
+PyYAML>=6.0
+tqdm>=4.65
+matplotlib>=3.7
+open3d>=0.18
+pymeshlab>=2023.12
+trimesh>=3.21
+potpourri3d>=1.0
+einops>=0.6
+fvcore>=0.1.5
+iopath>=0.1.9
+psbody-mesh>=0.4
+smplx>=0.1.28
+wandb>=0.16

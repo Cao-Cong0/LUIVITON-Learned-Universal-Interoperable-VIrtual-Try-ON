@@ -1,0 +1,15 @@
+[submodule "third_party/SyncMVD"]
+	path = third_party/SyncMVD
+	url = https://github.com/LIU-Yuxin/SyncMVD.git
+[submodule "third_party/ContourCraft"]
+	path = third_party/ContourCraft
+	url = https://github.com/Dolorousrtur/ContourCraft.git
+[submodule "third_party/diffusion_net"]
+	path = third_party/diffusion_net
+	url = https://github.com/nmwsharp/diffusion-net.git
+[submodule "third_party/RVH_Mesh_Registration"]
+	path = third_party/RVH_Mesh_Registration
+	url = https://github.com/bharat-b7/RVH_Mesh_Registration.git
+[submodule "third_party/psbody_mesh"]
+	path = third_party/psbody_mesh
+	url = https://github.com/MPI-IS/mesh.git

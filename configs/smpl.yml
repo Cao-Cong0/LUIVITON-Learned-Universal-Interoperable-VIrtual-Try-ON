@@ -1,0 +1,3 @@
+# Paths are resolved relative to this file when they are relative.
+SMPL_MODELS_PATH: "../third_party/RVH_Mesh_Registration/assets"
+SMPL_ASSETS_PATH: "../third_party/RVH_Mesh_Registration/assets"
